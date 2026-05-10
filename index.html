@@ -1,109 +1,1546 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Jesus Emanuel Aguirre - Web Developer</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Tailwind CSS Configuration for Dark Mode -->
-  <script>
-    tailwind.config = {
-      darkMode: 'media',
-      theme: {
-        extend: {},
-      },
-      variants: {},
-      plugins: [],
-    }
-  </script>
-  <!-- Font Awesome CDN for Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fafaf6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+  <title>Emanuel Aguirre — Senior PHP &amp; Laravel Engineer</title>
+  <meta name="description" content="Senior backend engineer building reliable Laravel platforms for education at scale. Based in Valencia, Spain.">
+  <meta name="author" content="Jesus Emanuel Aguirre">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Emanuel Aguirre — Senior PHP &amp; Laravel Engineer">
+  <meta property="og:description" content="Senior backend engineer building reliable Laravel platforms for education at scale. Based in Valencia, Spain.">
+  <meta property="og:url" content="https://emanuel.com.ar">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <link
       rel="shortcut icon"
       href="data:image/x-icon;base64,AAABAAMAMDAAAAEAIACoJQAANgAAACAgAAABACAAqBAAAN4lAAAQEAAAAQAgAGgEAACGNgAAKAAAADAAAABgAAAAAQAgAAAAAAAAJAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAREQDQEREAT9DQwMAAAAA2draCfr6+kT8/Pyc/f7+3f7+/vv9/v7//v7+//39/f/+/v7//f39//7+/v/9/f3//v7+//39/f/+/v7//f39//7+/v/9/f3//v7+//7+/v/9/v7//v7+//39/f/+/v7//f39//7+/v/9/f3//v7+//39/f/+/v7//f39//7+/v/9/f3//v7+/f39/eH8/Pyk+vr6S+Dh4QwAAAAAP0NDA0BERAFAREQDQEREAUBERAJAREQDPEBABAADAwHv8PAt+/v7oPz9/e78/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//39/f/8/f3//f39//z8/P/9/f3//Pz88fz8/Krw8fE3UlVVAjc7OwRAREQDQEREA0BERAE5PT0ETlFRAvX29k38/PzZ/P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3i9vb2XJGTkwM0ODgEQEREATxAQAIAAAAA9fX1S/39/eT8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f397ff391wABAQBODw8AwAAAADu7u4p/f391Pz8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/eHy8vI3AAAAAL2+vgb8/PyX/Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/8/Pyq3N3dDPz8/Dr8/Pzo/f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pzw+/v7TPz8/Iz9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//P39o/7+/sz8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//v7+/////////////v7+//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f394P39/e/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/+/v7/7+/v/7CwsP+np6f/5eXl///////9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//v7+/P7+/v38/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//7+/v/39/f/eXl5/xwcHP8ZGRn/U1NT/9ra2v///////f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//7+/v/h4uL/NDQ0/xgYGP8aGhr/FxcX/1BQUP/a2tr///////39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//v7+//7+/v/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//7+/v/s7Oz/S0tL/xYXF/8aGhr/Ghoa/xcXF/9QUFD/2tra///////9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//7+/v/9/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P//////wMDA/zU1Nf8YGBj/Ghoa/xoaGv8XFxf/UFBQ/9ra2v///////f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//v7+//7+/v/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//v///76+vv81NTX/GBgY/xoaGv8aGhr/FxcX/1BQUP/a2tr///////39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//f39//7+/v/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//////++vr7/NTU1/xgYGP8aGhr/Ghoa/xcXF/9QUFD/2tra///////9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//v7+//7+/v/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//v7+///////+/v7//f39//z8/P//////vr6+/zU1Nf8YGBj/Ghoa/xoaGv8XFxf/UFBQ/9rb2////////f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//f39//7+/v/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P//////8PDw/8vLy//a2tr/+/v7//39/f/8/Pz//////76+vv81NTX/GBgY/xoaGv8aGhr/FxcX/1BQUP/a2tr///////39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//v7+//7+/v/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8///////j4+P/ZGRk/yUlJf8zMzP/ra2t//7+/v/9/f3//Pz8//////++vr7/NTY2/xkZGf8aGhr/Ghoa/xcXF/9UVFT/5ubm//7+/v/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//f39//7+/v/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//////+Pj4/9cXFz/GBgY/xkZGf8WFhb/TExM//Hx8f/9/f3//f39//z8/P//////urq6/yoqKv8ZGRn/Ghoa/xoaGv8aGxv/ra2t///////8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//v7+//39/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P//////4+Pj/1xcXP8YGBj/Ghoa/xoaGv8WFhb/UlJS//Ly8v/9/f3//Pz8//7+/v/6+vr/mJiY/yMjI/8ZGhr/Ghoa/xkZGf8gICD/ubm5///////9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//f39//7+/v/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8///////j4+P/XFxc/xgYGP8aGhr/Ghoa/xgYGP8uLi7/t7i4//7+/v/9/f3//f39//r6+v+Xl5f/IyMj/xkZGf8aGhr/GRoa/xsbG/94eHj/8/Pz//7+/v/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//v7+//39/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/Pz//////+Pj4/9cXFz/GBgY/xoaGv8aGhr/GBgY/y4uLv+ysrL//f39//39/f/9/f3/+vr6/5eXl/8jIyP/GRkZ/xoaGv8ZGhr/Gxsb/3Z2dv/w8PD///////z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//f7+//7+/v/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f//////4+Pj/1xcXP8YGBj/Ghoa/xoaGv8YGBj/Li4u/7Kysv/9/v7//f39//39/f/6+vr/l5eX/yMjI/8ZGRn/Ghoa/xkaGv8bGxv/dnZ2//Dw8P///////Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//v7+//39/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//7+/v/j4+P/XFxc/xgYGP8aGhr/Ghoa/xgYGP8uLi7/srKy//3+/v/9/f3//f39//r6+v+Xl5f/IyMj/xkZGf8aGhr/GRoa/xsbG/92dnb/8PDw///////8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//v7+//7+/v/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//v7+/+Pj4/9cXFz/GBgY/xoaGv8aGhr/GBgY/y4uLv+ysrL//f7+//39/f/9/f3/+fn5/5eXl/8jIyP/GRkZ/xoaGv8aGhr/Gxsb/3Z2dv/w8PD///////z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/9/f3/6enp/11eXv8YGBj/Ghoa/xoaGv8YGBj/Li4u/7Kysv/9/v7//f39//z8/P/9/f3/nZ6e/yMjI/8ZGRn/Ghoa/xoaGv8bGxv/dXZ2//Dw8P/+/v7//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//v7+//7+/v/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P//////np+f/xkZGf8aGhr/Ghoa/xkZGf8sLCz/srKy//7+/v/9/f3//Pz8//7////m5ub/PT09/xcXF/8aGhr/Ghoa/xsbG/91dXX/8PDw//7+/v/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//7+/v/9/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f//////lpeX/xcXF/8aGhr/Ghoa/xkZGf80NDT/x8fH///////9/f3//f39//7+/v/m5ub/PDw8/xYWFv8ZGRn/Gxsb/3V1df/w8PD//v7+//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//v7+//7+/v/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P//////29vb/0dHR/8XGBj/Ghoa/xoaGv8YGBj/Pj4+/8jIyP///////f39//39/f/8/Pz/n5+f/zMzM/8sLCz/fHx8//Dw8P/+/v7//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//f39//7+/v/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//////9DQ0P9FRkb/FxgY/xoaGv8aGhr/FxcX/z4+Pv/IyMj///////39/f/9/f3/+vr6/9zc3P/V1dX/9/f3//39/f/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//v7+//7+/v/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8///////Q0dH/RkZG/xcYGP8aGhr/Ghoa/xcXF/8+Pj7/yMjI///////9/f3//f39//7+/v///////f39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//f39//7+/v/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P//////0dHR/0ZGRv8XGBj/Ghoa/xoaGv8XFxf/Pj4+/8nJyf///////f39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//v7+//7+/v/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//////9HR0f9GRkb/FxgY/xoaGv8aGhr/FxcX/z4/P//Jycn///////z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//f39//7+/v/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8///////R0dH/RkZG/xcYGP8aGhr/Ghoa/xcXF/8/Pz//y8vL///////8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//v7+//39/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P//////0dHR/0ZGRv8XGBj/Ghoa/xoaGv8WFhb/Xl9f//X19f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//f39//7+/v/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//////9HR0f9GRkb/FxcX/xoaGv8XFxf/RkdH/+/v7//+/v7//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//v7+//39/fz9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8///////R0dH/SkpK/xobG/8jIyP/lZWV//39/f/9/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//f7+//7+/uz8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P//////4eHh/62trf/AwMD/9vb2//39/f/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//v7++/39/cf9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//v7+/////////////f39//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//f7+3P7+/oT8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//Pz8m/b39zP8/Pzj/P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/8/f3t+/v7RLS1tQP7+/uM/f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/7+/ufzM3NCAAAAADt7e0i/Pz8yv39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//z8/Njx8fEtAAAAAD5DQwEAAAAA9fX1P/z8/Nv9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//P39//39/f/9/f3//P39//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f395Pb29k0AAAABPEBAA0BERAI8QEAEAAAAAfT19T/8/PzL/f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z9/f/9/f3//f39//z9/f/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3V9fX1S1NWVgI4PDwEQEREAUBERAJAREQDPkJCBAAAAADs7Owi+vr6jPz8/OT8/f3+/f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/9/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz8//39/f/8/Pz//f39//z8/P/9/f3//Pz8//39/f/9/f3//f39//39/f/8/f3//f39//z8/P/9/f3//Pz86fz8/Jjs7OwpAAQEATs/PwRAREQDQEREA0BERAFAREQCQEREAj1BQQEAAAAA7u7uA/X19TP9/f2F/f39yP7+/u39/f38/v7+//39/f/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//39/f/+/v7//f39//7+/v/9/f3//v7+//39/f/+/v7//v7+//7+/v/+/v7//v7+//7+/v/+/v7//v7+//39/f/+/v79/f397/7+/sz8/PyM+/v7OcfIyAcAAAAAPUFBAkBERAFAREQCAAAAAP4AAAAAfwAA+AAAAAAfAADwAAAAAA8AAOAAAAAABwAAwAAAAAADAACAAAAAAAEAAIAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAEAAIAAAAAAAQAAwAAAAAADAADgAAAAAAcAAPAAAAAADwAA+AAAAAAfAAD+AAAAAH8AACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAABAREQCNDg4AkVHRwH09PQt/Pz8k/39/eD9/f3+/f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39/v39/eP8/PyZ9fX1Mnl7ewIsMDACQEREAigtLQKMjo4E9/j4V/z8/Nn9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/8/Pze+Pj4YamrqwUeIyMCAAAAAPj4+FX8/Pzs/f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/8/Pzx+fn5YQAAAAH29vYp/Pz81P39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/8/Pzd9/f3M/z8/In9/f3+/f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/8/PyY/f391f39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//v7+//7//////////f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/eL9/f33/f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//7+/v/Z2dn/gYKC/6mpqf/4+Pj//f7+//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39/v39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39/3Z2dv8TExP/IiIi/5SUlP/5+fn//f7+//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/+/v7/k5OT/xsbG/8YGBj/IiIi/5SUlP/5+fn//f7+//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/y8vL/e3t7/xwcHP8YGBj/IiIi/5SUlP/5+fn//f7+//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3////////////y8vL/e3t7/xwcHP8YGBj/IiIi/5SUlP/5+fn//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//v7+//Ly8v/W1tb/8fHx///////y8vL/e3t7/xwcHP8YGBj/IiIi/5SVlf/4+Pj//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39///////r6+v/b3Bw/ykpKf94eHj/9/f3//7////y8/P/fX19/x4eHv8YGRn/IiIi/6urq////////f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/+////7Ozs/2tra/8ZGRn/FRUV/0VFRf/u7u7//v7+//////+5ubn/Jycn/xkZGf8VFhb/h4eH///////9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//////+zs7P9ra2v/GRoa/xgYGP8oKCj/qKmp//39/f//////w8PD/zo6Ov8ZGRn/FxgY/05OTv/c3Nz//v7+//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//7////s7Oz/a2tr/xkaGv8YGBj/KCgo/6Wlpf/8/Pz//////8PDw/85OTn/FxgY/xcYGP9OTk7/2dnZ///////9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/+/v7/7Ozs/2tra/8ZGhr/GBgY/ygoKP+lpaX//Pz8///////Dw8P/OTk5/xcYGP8XGBj/Tk5O/9nZ2f///////f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//v7+/+7u7v9sbGz/GRoa/xkZGf8pKir/paWl//z8/P//////yMjI/zk6Ov8XGBj/FxgY/05OTv/Z2dn///////39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f//////t7e3/x0dHf8ZGhr/Gxsb/5GRkf/+/v7//f39//39/f9wcXH/ExQU/xcXF/9OTk7/2dnZ///////9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39///////T09P/Nzg4/xcYGP8ZGRn/VlZW/97e3v///////v7+/6SkpP8xMTH/VlZW/9nZ2f///////f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//7+/v+8vLz/NTU1/xcYGP8YGBj/VFRU/93e3v//////+fn5/93d3f/s7Oz//v7+//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//////+8vLz/NTU1/xcYGP8YGBj/VFRU/97e3v////////////7+/v/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//////+8vb3/NTU1/xcYGP8YGBj/VFRU/93e3v/+/v7//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//////+9vb3/NTU1/xcYGP8XFxf/ZGRk//X19f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//////+9vb3/NTU1/xMTE/9MTEz/7+/v//3+/v/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/fb9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//7+/v/Gxsb/hISE/8XFxf/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f39/f390v39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//7//////////v7+//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/d/8/PyD/f39/v39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//Pz8kvT09CP8/PzO/f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//z8/Nf19fUtAAAAAPf39038/Pzn/f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/8/Pzs+Pj4VwAAAAAvMzMCZ2pqA/b39038/PzP/f39/v39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3+/Pz81ff391WMjo4EKS4uAkBERAI5PT0CAAAAAfLz8yP7+/uD/f390/39/fb9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f33/f391vz8/Ir09PQoAAAAADg9PQJAREQC8AAAD+AAAAfAAAADgAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAHAAAAD4AAAB/AAAA8oAAAAEAAAACAAAAABACAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAA0tPTB/n5+Wj9/f3f/f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/eH6+vpt1tfXCPn6+mb8/Pzv/f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//Pz88fr6+m39/f3Z/f39//39/f/9/f3//f39//39/f/9/f3//Pz8//n5+f/+/v7//f39//39/f/9/f3//f39//39/f/9/f3f/f39/f39/f/9/f3//f39//39/f/9/f3//////8zMzP9qamr/1NTU///////9/f3//f39//39/f/9/f3//f39/v39/f/9/f3//f39//39/f/9/f3//f39///////X19f/PD09/0ZGRv/U1dX///////39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//7+/v/19fX/6enp/8rKyv8+Pj7/SEhI/9TU1P/+/v7//f39//39/f/9/f3//f39//39/f/9/f3//f39//7+/v/y8vL/enp6/1lZWf/z8/P/tra2/x4eHv9qamr/+vr6//39/f/9/f3//f39//39/f/9/f3//f39//7+/v/y8vL/enp6/yUlJf+ampr/4uLi/11eXv8xMTH/t7e3//7+/v/9/f3//f39//39/f/9/f3//f39//39/f/z8/P/e3t7/ygoKP+ampr/4+Tk/1tcXP8uLy//tra2//7+/v/9/f3//f39//39/f/9/f3//f39//39/f//////2tra/y8vL/9HR0f/6urq/8PDw/9DQ0P/tbW1//7+/v/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//v7+/+kpKT/Kioq/21tbf/n5+f/6enp//z8/P/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//Pz8/6SkpP8nJyf/cnJy//f39//9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39/P39/f/9/f3//f39//39/f/8/Pz/p6en/3p7e//y8vL//f39//39/f/9/f3//f39//39/f/9/f3//f39/v39/df9/f3//f39//39/f/9/f3//f39//39/f/6+vr//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/d35+fli/Pz87f39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39//z8/O/5+vpoycrKBvn5+WH9/f3Y/f39/f39/f/9/f3//f39//39/f/9/f3//f39//39/f/9/f3//f39/f39/dr5+flm0dLSB8ADAACAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAMADAAA="
   />
+
+  <script>
+    (function () {
+      try {
+        var stored = localStorage.getItem('theme');
+        if (stored === 'dark' || stored === 'light') {
+          document.documentElement.setAttribute('data-theme', stored);
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <style>
+    :root {
+      --bg: #fafaf6;
+      --surface: #ffffff;
+      --surface-2: #f3f1ea;
+      --text: #0d0d0d;
+      --text-2: #525252;
+      --text-3: #8a8a87;
+      --line: rgba(13, 13, 13, 0.08);
+      --line-strong: rgba(13, 13, 13, 0.18);
+      --accent: #c2410c;
+      --accent-hover: #9a3412;
+      --accent-bg: rgba(194, 65, 12, 0.08);
+      --success: #16a34a;
+
+      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-display: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-pill: 999px;
+
+      --container: 1180px;
+      --pad: clamp(1.25rem, 4vw, 2.5rem);
+
+      --t-fast: 0.15s ease;
+      --t-base: 0.25s ease;
+      --t-slow: 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0a0a0a;
+      --surface: #131313;
+      --surface-2: #1a1a1a;
+      --text: #ededed;
+      --text-2: #a3a3a3;
+      --text-3: #6e6e6e;
+      --line: rgba(237, 237, 237, 0.08);
+      --line-strong: rgba(237, 237, 237, 0.18);
+      --accent: #fb923c;
+      --accent-hover: #fdba74;
+      --accent-bg: rgba(251, 146, 60, 0.1);
+      --success: #22c55e;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0a0a0a;
+        --surface: #131313;
+        --surface-2: #1a1a1a;
+        --text: #ededed;
+        --text-2: #a3a3a3;
+        --text-3: #6e6e6e;
+        --line: rgba(237, 237, 237, 0.08);
+        --line-strong: rgba(237, 237, 237, 0.18);
+        --accent: #fb923c;
+        --accent-hover: #fdba74;
+        --accent-bg: rgba(251, 146, 60, 0.1);
+        --success: #22c55e;
+      }
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      scroll-padding-top: 80px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      transition: background-color var(--t-base), color var(--t-base);
+    }
+
+    body::selection,
+    *::selection {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding-left: var(--pad);
+      padding-right: var(--pad);
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      padding: 0.6rem 1rem;
+      background: var(--text);
+      color: var(--bg);
+      border-radius: 0 0 var(--radius-sm) 0;
+      z-index: 1000;
+    }
+
+    .skip-link:focus {
+      left: 0;
+    }
+
+    /* ───── Header ───── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      backdrop-filter: saturate(180%) blur(14px);
+      -webkit-backdrop-filter: saturate(180%) blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding-top: 0.85rem;
+      padding-bottom: 0.85rem;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-style: italic;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      transition: color var(--t-fast);
+    }
+
+    .logo:hover {
+      color: var(--accent);
+    }
+
+    .primary-nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .primary-nav a {
+      position: relative;
+      font-size: 0.9rem;
+      color: var(--text-2);
+      transition: color var(--t-fast);
+      padding: 0.3rem 0;
+    }
+
+    .primary-nav a:hover {
+      color: var(--text);
+    }
+
+    .primary-nav a.is-active {
+      color: var(--text);
+    }
+
+    .primary-nav a.is-active::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .theme-toggle {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 50%;
+      color: var(--text);
+      transition: border-color var(--t-fast), transform var(--t-fast), background var(--t-fast);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--line-strong);
+      transform: rotate(20deg);
+    }
+
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+
+    [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+    [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    }
+
+    /* ───── Buttons ───── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.4rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: -0.005em;
+      transition: transform var(--t-fast), background-color var(--t-fast),
+        color var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+      white-space: nowrap;
+      will-change: transform;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-sm {
+      padding: 0.55rem 1rem;
+      font-size: 0.875rem;
+    }
+
+    .btn-lg {
+      padding: 1rem 1.6rem;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+      border: 1px solid var(--text);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px -8px var(--accent);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line-strong);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--text);
+      background: var(--surface);
+    }
+
+    .btn-arrow {
+      transition: transform var(--t-fast);
+    }
+
+    .btn:hover .btn-arrow {
+      transform: translate(2px, -2px);
+    }
+
+    /* ───── Hero ───── */
+    .hero {
+      padding: clamp(4rem, 12vh, 7.5rem) 0 clamp(3rem, 8vh, 5rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(60% 40% at 80% 0%, var(--accent-bg) 0%, transparent 60%),
+        radial-gradient(40% 30% at 5% 30%, var(--accent-bg) 0%, transparent 70%);
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero > .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.45rem 0.95rem 0.45rem 0.7rem;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-pill);
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--text-2);
+      background: var(--surface);
+      margin-bottom: 2.25rem;
+    }
+
+    .status-dot {
+      position: relative;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      flex-shrink: 0;
+    }
+
+    .status-dot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: var(--success);
+      animation: ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    @keyframes ping {
+      0% { transform: scale(1); opacity: 0.7; }
+      75%, 100% { transform: scale(2.6); opacity: 0; }
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2.75rem, 7vw, 5.5rem);
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+      font-weight: 400;
+      margin: 0 0 2rem;
+      max-width: 18ch;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-lead {
+      font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+      line-height: 1.55;
+      color: var(--text-2);
+      max-width: 60ch;
+      margin: 0 0 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    /* ───── Stats Strip ───── */
+    .strip {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 2.25rem 0;
+      background: var(--surface-2);
+    }
+
+    .strip-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem 2.5rem;
+    }
+
+    .strip-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .strip-num {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+      line-height: 1;
+      letter-spacing: -0.025em;
+      color: var(--text);
+    }
+
+    .strip-num span {
+      color: var(--accent);
+      margin-left: 0.05em;
+    }
+
+    .strip-label {
+      font-size: 0.85rem;
+      color: var(--text-2);
+      line-height: 1.4;
+      max-width: 24ch;
+    }
+
+    /* ───── Sections ───── */
+    .section {
+      padding: clamp(4rem, 10vh, 7rem) 0;
+      position: relative;
+    }
+
+    .section + .section {
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      margin-bottom: 3rem;
+      max-width: 720px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      font-weight: 400;
+      margin: 0;
+      color: var(--text);
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* ───── About ───── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .prose p {
+      font-size: 1.075rem;
+      line-height: 1.65;
+      color: var(--text-2);
+      margin: 0 0 1.25rem;
+    }
+
+    .prose p:first-child {
+      color: var(--text);
+      font-size: 1.2rem;
+      line-height: 1.55;
+    }
+
+    .prose p:last-child {
+      margin-bottom: 0;
+    }
+
+    .about-card {
+      padding: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      position: sticky;
+      top: 6rem;
+    }
+
+    .facts {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .facts li {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding-bottom: 1.1rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .facts li:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .fact-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-3);
+    }
+
+    .fact-val {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    /* ───── Experience Timeline ───── */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .role {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 3rem;
+      padding: 3rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .role:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .role-side {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .role-time {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .role-where {
+      font-size: 0.85rem;
+      color: var(--text-2);
+    }
+
+    .role-tags {
+      list-style: none;
+      padding: 0;
+      margin: 0.5rem 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .role-tags li {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 0.3rem 0.6rem;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-pill);
+      color: var(--text-2);
+      background: var(--surface);
+    }
+
+    .role-company {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 3vw, 2.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0 0 0.4rem;
+      font-weight: 400;
+    }
+
+    .role-title {
+      font-size: 1rem;
+      color: var(--text-2);
+      margin: 0 0 1.5rem;
+      line-height: 1.4;
+    }
+
+    .role-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .role-bullets li {
+      position: relative;
+      padding-left: 1.25rem;
+      color: var(--text-2);
+      font-size: 0.97rem;
+      line-height: 1.6;
+    }
+
+    .role-bullets li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.65rem;
+      width: 0.5rem;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    /* ───── Highlights Cards ───── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      transition: border-color var(--t-base), transform var(--t-base),
+        box-shadow var(--t-base);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity var(--t-base);
+    }
+
+    .card:hover {
+      border-color: var(--line-strong);
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-num {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-3);
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-badge {
+      align-self: flex-start;
+      padding: 0.3rem 0.7rem;
+      background: var(--accent-bg);
+      color: var(--accent);
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+      margin: 0 0 1rem;
+    }
+
+    .card-stat {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      color: var(--text);
+      margin: 0 0 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card-stat .card-arrow {
+      color: var(--accent);
+      margin: 0 0.4rem;
+    }
+
+    .card-body {
+      font-size: 0.95rem;
+      color: var(--text-2);
+      line-height: 1.6;
+      margin: 0 0 auto;
+    }
+
+    .card-meta {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin: 1.75rem 0 0;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+    }
+
+    /* ───── Stack ───── */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem 4rem;
+    }
+
+    .stack-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .stack-head {
+      display: flex;
+      align-items: baseline;
+      gap: 0.7rem;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .stack-num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .stack-head h3 {
+      font-size: 1.1rem;
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .stack-items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .stack-items li {
+      font-size: 0.95rem;
+      color: var(--text-2);
+      line-height: 1.45;
+    }
+
+    /* ───── Contact ───── */
+    .section-contact {
+      padding-bottom: clamp(4rem, 10vh, 7rem);
+    }
+
+    .contact-card {
+      padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -10%;
+      width: 80%;
+      height: 100%;
+      background: radial-gradient(closest-side, var(--accent-bg), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .contact-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-card .eyebrow {
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-headline {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      font-weight: 400;
+      margin: 0 0 1.25rem;
+    }
+
+    .contact-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .contact-lead {
+      font-size: 1.1rem;
+      line-height: 1.55;
+      color: var(--text-2);
+      max-width: 52ch;
+      margin: 0 auto 2.5rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-meta {
+      list-style: none;
+      margin: 0;
+      padding: 2rem 0 0;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .contact-meta li {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    .meta-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-3);
+    }
+
+    .meta-val {
+      font-size: 0.92rem;
+      color: var(--text);
+    }
+
+    /* ───── Footer ───── */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 2rem 0;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      color: var(--text-3);
+      margin: 0;
+    }
+
+    .footer-links {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--text-2);
+      transition: color var(--t-fast);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ───── Animations ───── */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity var(--t-slow), transform var(--t-slow);
+    }
+
+    [data-animate].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      [data-animate] {
+        opacity: 1;
+        transform: none;
+      }
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    /* ───── Focus styles ───── */
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .btn:focus-visible {
+      outline-offset: 4px;
+    }
+
+    /* ───── Responsive ───── */
+    @media (max-width: 1000px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .about-card {
+        position: static;
+      }
+      .stack-grid {
+        gap: 2.5rem 3rem;
+      }
+    }
+
+    @media (max-width: 880px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+      .role {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 2.5rem 0;
+      }
+      .role-side {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem 1.5rem;
+      }
+      .role-tags {
+        margin-top: 0;
+        order: 4;
+        flex-basis: 100%;
+      }
+      .strip-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .contact-meta {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.75rem;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .primary-nav {
+        display: none;
+      }
+      .stack-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .strip-list {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-actions .btn {
+        justify-content: center;
+      }
+      .contact-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .contact-actions .btn {
+        justify-content: center;
+      }
+      .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media print {
+      .site-header,
+      .theme-toggle,
+      .hero-actions,
+      .contact-actions,
+      .site-footer {
+        display: none;
+      }
+      .section {
+        padding: 1rem 0;
+        page-break-inside: avoid;
+      }
+      body {
+        background: white;
+        color: black;
+      }
+    }
+  </style>
 </head>
-<body class="bg-white text-gray-800 dark:text-gray-100 dark:bg-gray-900">
-  <div class="max-w-3xl mx-auto p-6">
-    <!-- Header -->
-    <header class="mb-8 text-center">
-      <h1 class="text-3xl sm:text-4xl font-bold mb-2">Jesus Emanuel Aguirre</h1>
-      <p class="text-lg mb-4">Valencia, Spain</p>
-      <div class="space-y-2">
-        <p>
-          <a href="mailto:aguirre@emanuel.com.ar" class="text-blue-600 dark:text-blue-400 hover:underline">
-            <i class="fas fa-envelope mr-1"></i>Email
-          </a> |
-          <a href="https://www.linkedin.com/in/ema-dev" class="text-blue-600 dark:text-blue-400 hover:underline">
-            <i class="fab fa-linkedin mr-1"></i>LinkedIn
-          </a> |
-          <a href="https://github.com/delmicio" class="text-blue-600 dark:text-blue-400 hover:underline">
-            <i class="fab fa-github mr-1"></i>GitHub
-          </a> |
-          <a href="https://emanuel.com.ar" class="text-blue-600 dark:text-blue-400 hover:underline">
-            <i class="fas fa-globe mr-1"></i>Website
-          </a>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a class="logo" href="#top">Emanuel Aguirre</a>
+      <nav class="primary-nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#highlights">Highlights</a>
+        <a href="#stack">Stack</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle color theme" type="button">
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a class="btn btn-sm btn-primary" href="#contact">
+          <span>Get in touch</span>
+          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="hero-eyebrow" data-animate>
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Available for senior contract roles · EU hours</span>
+        </div>
+        <h1 class="hero-headline" data-animate>
+          Reliable software, <em>built</em> for education at scale.
+        </h1>
+        <p class="hero-lead" data-animate>
+          Hi, I'm Emanuel Aguirre — a senior PHP and Laravel engineer based in Valencia. For over a decade I've helped education companies ship dependable platforms, scale them as user demand grows, and keep them calm through every release.
         </p>
+        <div class="hero-actions" data-animate>
+          <a class="btn btn-primary" href="#contact">
+            <span>Start a conversation</span>
+            <svg class="btn-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </a>
+          <a class="btn btn-ghost" href="#work">Browse work</a>
+        </div>
       </div>
-    </header>
-
-    <!-- Summary -->
-    <hr class="border-gray-300 dark:border-gray-700 mb-8">
-    <section class="mb-8">
-      <h2 class="text-2xl font-semibold mb-4">Summary</h2>
-      <p class="leading-relaxed">
-        Experienced PHP Software Developer with a strong background in web technologies, specializing in the Laravel framework, MySQL, HTML, CSS, and JavaScript. Successfully led the technical development of the Open English Junior learning platform, enhancing scalability and performance. Proven track record in integrating third-party services and optimizing code for improved user experience. Eager to leverage expertise in web development to contribute to innovative projects as a Web Developer.
-      </p>
     </section>
 
-    <!-- Work Experience -->
-    <hr class="border-gray-300 dark:border-gray-700 mb-8">
-    <section class="mb-8">
-      <h2 class="text-2xl font-semibold mb-4">Work Experience</h2>
-      <!-- Job 1 -->
-      <div class="mb-6">
-        <h3 class="text-xl font-semibold">Open English</h3>
-        <p class="text-gray-600 dark:text-gray-400">Jul 2018 - Jul 2024 | Remotely</p>
-        <p class="font-semibold">Technical Lead PHP Developer</p>
-        <ul class="list-disc list-inside mt-2 space-y-2">
-          <li>Managed a team of 5 people using agile methodologies, ensuring efficient daily meetings and project progress.</li>
-          <li>Migrated in-company framework code to modern PHP Laravel framework for better scalability on user demands.</li>
-          <li>Communicated daily with distributed teams across different countries and time zones, ensuring seamless collaboration.</li>
-          <li>Refactored and optimized code, database queries, and cache systems, significantly improving final response time. Achieved a 72% reduction in load time, going from 900ms to 250ms, enhancing user experience and overall application performance.</li>
-          <li>Connected company accounts to third-party services like Salesforce API, Zoom API, and Mandrill API, enhancing integration with in-company REST services.</li>
-          <li>Led the technical development of the Open English Junior platform, enabling Latin American kids to learn English effectively with live classes and asynchronous learning content.</li>
-          <li>Conducted code reviews using GitHub to improve code quality and enhance the development team’s skills.</li>
-        </ul>
-      </div>
-      <!-- Job 2 -->
-      <div class="mb-6">
-        <h3 class="text-xl font-semibold">StartSpanish</h3>
-        <p class="text-gray-600 dark:text-gray-400">Sep 2014 - Jul 2018 | Córdoba, Argentina</p>
-        <p class="font-semibold">Full Stack Web Developer</p>
-        <ul class="list-disc list-inside mt-2 space-y-2">
-          <li>Managed the web technologies stack independently, maintaining and developing new features while collaborating closely on business decisions for feature enhancements.</li>
-          <li>Communicated effectively with different departments to make informed decisions that improved user experience for both internal and external clients.</li>
-          <li>Applied a new design to the marketing site using mobile-first techniques, enhancing accessibility and user engagement.</li>
-          <li>Refactored back-end services for the learning application, implementing object-oriented programming and DRY principles to improve code efficiency and maintainability.</li>
-          <li>Upgraded the PayPal integration to the latest version and added Stripe as the primary payment option, enhancing payment processing reliability and user convenience.</li>
-          <li>Integrated Mandrill API for sending transactional emails, improving communication and user experience.</li>
-          <li>Migrated the online live classes module from Adobe Connect to Zoom, enhancing the reliability and quality of live class sessions.</li>
+    <section class="strip" data-animate>
+      <div class="container">
+        <ul class="strip-list">
+          <li class="strip-item">
+            <div class="strip-num">14<span>+</span></div>
+            <div class="strip-label">years building production software</div>
+          </li>
+          <li class="strip-item">
+            <div class="strip-num">72<span>%</span></div>
+            <div class="strip-label">faster page loads at Open English</div>
+          </li>
+          <li class="strip-item">
+            <div class="strip-num">5</div>
+            <div class="strip-label">engineers led across time zones</div>
+          </li>
+          <li class="strip-item">
+            <div class="strip-num">3</div>
+            <div class="strip-label">education platforms shipped end-to-end</div>
+          </li>
         </ul>
       </div>
     </section>
 
-    <!-- Skills -->
-    <hr class="border-gray-300 dark:border-gray-700 mb-8">
-    <section class="mb-8">
-      <h2 class="text-2xl font-semibold mb-4">Skills</h2>
-      <ul class="list-disc list-inside space-y-2">
-        <li><strong>Languages &amp; Frameworks:</strong> Laravel, PHP, MySQL, HTML, CSS, JavaScript</li>
-        <li><strong>Technologies:</strong> REST APIs, Docker</li>
-        <li><strong>Version Control:</strong> Git</li>
-        <li><strong>Other Skills:</strong> Performance Optimization, Testing and Debugging, Database Management (SQL)</li>
-        <li><strong>Collaboration Tools:</strong> JIRA, Trello, Slack, GitHub</li>
+    <section class="section section-about" id="about">
+      <div class="container">
+        <header class="section-head" data-animate>
+          <span class="eyebrow">01 — About</span>
+          <h2 class="section-title">An engineer who treats <em>production</em> like the most important feature.</h2>
+        </header>
+        <div class="about-grid">
+          <div class="prose" data-animate>
+            <p>Most of my career has lived inside education platforms — places where uptime is non-negotiable, students rely on a working live class, and a slow page is a missed lesson.</p>
+            <p>I work end-to-end: Laravel backends, third-party integrations, database design, code review, release pipelines, and the occasional production incident. After a decade of this, what I do best is build software that disappears into the background and lets people learn.</p>
+            <p>I've also led small distributed teams through agile workflows, mentored junior engineers, and partnered across product, QA, DevOps, research, and marketing — translating fuzzy requirements into safe, observable releases.</p>
+          </div>
+          <aside class="about-card" data-animate>
+            <ul class="facts">
+              <li>
+                <span class="fact-label">Currently</span>
+                <span class="fact-val">Senior PHP Developer at Stride</span>
+              </li>
+              <li>
+                <span class="fact-label">Based in</span>
+                <span class="fact-val">Valencia, Spain · UTC+1</span>
+              </li>
+              <li>
+                <span class="fact-label">Working hours</span>
+                <span class="fact-val">EU &amp; US Eastern · async-first</span>
+              </li>
+              <li>
+                <span class="fact-label">Languages</span>
+                <span class="fact-val">English · Spanish (native)</span>
+              </li>
+              <li>
+                <span class="fact-label">Available for</span>
+                <span class="fact-val">Senior contract &amp; full-time roles</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-work" id="work">
+      <div class="container">
+        <header class="section-head" data-animate>
+          <span class="eyebrow">02 — Experience</span>
+          <h2 class="section-title">A decade of <em>shipping</em>.</h2>
+        </header>
+        <div class="timeline">
+          <article class="role" data-animate>
+            <div class="role-side">
+              <div class="role-time">Feb 2025 — Present</div>
+              <div class="role-where">Remote · Valencia</div>
+              <ul class="role-tags">
+                <li>PHP</li>
+                <li>Okta SSO</li>
+                <li>AWS SES</li>
+                <li>SonarQube</li>
+                <li>Pendo</li>
+                <li>Jenkins</li>
+              </ul>
+            </div>
+            <div class="role-main">
+              <h3 class="role-company">Stride</h3>
+              <p class="role-title">Senior PHP Developer (Contract) · K12 Learning Coach Community</p>
+              <ul class="role-bullets">
+                <li>Maintain and extend a PHP-based community platform serving K12 learning coaches in the United States, focusing on permissions, user identity, deployment readiness, and platform stability.</li>
+                <li>Led multi-role single sign-on (Okta) integration spanning Learning Coach, Teacher, and School Admin access — including login-flow testing, role validation, edge-case coverage, and release-risk reduction.</li>
+                <li>Coordinated release readiness across multiple platform versions through branch preparation, pull-request review, code-quality validation, deployments to development and QA environments, and structured QA handoff.</li>
+                <li>Investigated production issues spanning analytics event loss, transactional email behavior (AWS SES), load-balancer redirect logic, CI/CD triggers, deep-link routing, and deployment rollback verification.</li>
+                <li>Integrated Pendo product analytics across the community platform and a related Stride education product, restoring production event reception and documenting a short, non-backfillable event-collection gap.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role" data-animate>
+            <div class="role-side">
+              <div class="role-time">Jul 2018 — Jul 2024</div>
+              <div class="role-where">Remote · LATAM / EU</div>
+              <ul class="role-tags">
+                <li>Laravel</li>
+                <li>MySQL</li>
+                <li>Redis</li>
+                <li>Blackfire</li>
+                <li>Zoom OAuth</li>
+                <li>Docker</li>
+              </ul>
+            </div>
+            <div class="role-main">
+              <h3 class="role-company">Open English</h3>
+              <p class="role-title">Technical Lead, PHP Web Developer</p>
+              <ul class="role-bullets">
+                <li>Led technical development of OpenEnglish Junior, an English-learning platform for Latin American students featuring live classes and asynchronous learning content.</li>
+                <li>Managed a team of five engineers across time zones using agile practices, daily coordination, and code-review-driven collaboration on GitHub.</li>
+                <li>Migrated an in-house PHP framework to Laravel, improving scalability, maintainability, and developer workflow as user demand grew.</li>
+                <li>Reduced page load time by 72% (900 ms → 250 ms) through Blackfire profiling, database query optimization, and caching improvements.</li>
+                <li>Delivered dynamic class registration, teacher-presence workflows, orientation class management, live-class routing, and Zoom OAuth integration.</li>
+                <li>Resolved routing, scheduling, and distributed-system issues through race-condition prevention, optimistic locking, queue reliability, high-traffic indexing, and improved monitoring and logging.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="role" data-animate>
+            <div class="role-side">
+              <div class="role-time">Sep 2014 — Jul 2018</div>
+              <div class="role-where">Cordoba, Argentina</div>
+              <ul class="role-tags">
+                <li>PHP</li>
+                <li>JavaScript</li>
+                <li>Stripe</li>
+                <li>Mandrill</li>
+                <li>Bootstrap</li>
+                <li>Zoom</li>
+              </ul>
+            </div>
+            <div class="role-main">
+              <h3 class="role-company">StartSpanish</h3>
+              <p class="role-title">Full-Stack Web Developer</p>
+              <ul class="role-bullets">
+                <li>Owned the web technology stack for an online Spanish-language education company — maintaining production systems, shipping features, and informing product decisions.</li>
+                <li>Rebuilt the marketing site with a mobile-first approach, improving accessibility, presentation quality, and user engagement.</li>
+                <li>Refactored learning-application backend services using object-oriented design and DRY principles to improve maintainability and delivery speed.</li>
+                <li>Upgraded PayPal integration, added Stripe as the primary payment option, integrated Mandrill transactional email, and migrated live online classes from Adobe Connect to Zoom.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-highlights" id="highlights">
+      <div class="container">
+        <header class="section-head" data-animate>
+          <span class="eyebrow">03 — Selected Highlights</span>
+          <h2 class="section-title">A few wins worth <em>telling</em>.</h2>
+        </header>
+        <div class="cards">
+          <article class="card" data-animate>
+            <span class="card-num">01</span>
+            <span class="card-badge">Performance</span>
+            <h3 class="card-title">72% faster, end to end.</h3>
+            <p class="card-stat">900&thinsp;ms <span class="card-arrow">→</span> 250&thinsp;ms</p>
+            <p class="card-body">Profiled production hot paths with Blackfire, optimized the slowest queries, and added strategic caching during the Laravel migration — bringing the home dashboard from 900&thinsp;ms down to 250&thinsp;ms without changing the UX.</p>
+            <p class="card-meta">Open English · 2018–2024</p>
+          </article>
+
+          <article class="card" data-animate>
+            <span class="card-num">02</span>
+            <span class="card-badge">Identity</span>
+            <h3 class="card-title">Single sign-on across three roles.</h3>
+            <p class="card-stat">1 login <span class="card-arrow">·</span> 3 access models</p>
+            <p class="card-body">Designed and shipped Okta SSO for the Learning Coach Community — supporting Learning Coach, Teacher, and School Admin access from a single authentication flow, with edge-case coverage in place before any user saw it.</p>
+            <p class="card-meta">Stride · 2025</p>
+          </article>
+
+          <article class="card" data-animate>
+            <span class="card-num">03</span>
+            <span class="card-badge">Migration</span>
+            <h3 class="card-title">Off legacy. Onto Laravel.</h3>
+            <p class="card-stat">In-house framework <span class="card-arrow">→</span> Laravel</p>
+            <p class="card-body">Led the migration of OpenEnglish Junior off a hand-rolled PHP framework onto Laravel without disrupting live classes — using the move to rebuild scalability, maintainability, and developer velocity.</p>
+            <p class="card-meta">Open English · 2018–2024</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-stack" id="stack">
+      <div class="container">
+        <header class="section-head" data-animate>
+          <span class="eyebrow">04 — Toolbox</span>
+          <h2 class="section-title">The stack I reach for.</h2>
+        </header>
+        <div class="stack-grid" data-animate>
+          <div class="stack-group">
+            <div class="stack-head">
+              <span class="stack-num">A.</span>
+              <h3>Backend</h3>
+            </div>
+            <ul class="stack-items">
+              <li>PHP / Laravel</li>
+              <li>MySQL · MariaDB · Redis</li>
+              <li>REST APIs · queues · Horizon</li>
+              <li>Database &amp; query optimization</li>
+              <li>Caching strategies</li>
+            </ul>
+          </div>
+          <div class="stack-group">
+            <div class="stack-head">
+              <span class="stack-num">B.</span>
+              <h3>Frontend</h3>
+            </div>
+            <ul class="stack-items">
+              <li>JavaScript · TypeScript</li>
+              <li>React · Blade · JSX/TSX</li>
+              <li>HTML · CSS · SASS/SCSS</li>
+              <li>Bootstrap</li>
+              <li>Mobile-first implementation</li>
+            </ul>
+          </div>
+          <div class="stack-group">
+            <div class="stack-head">
+              <span class="stack-num">C.</span>
+              <h3>Integrations</h3>
+            </div>
+            <ul class="stack-items">
+              <li>Zoom API &amp; OAuth</li>
+              <li>Salesforce API · Okta SSO</li>
+              <li>Pendo product analytics</li>
+              <li>Stripe · PayPal · Mandrill</li>
+              <li>AWS S3 · AWS SES · Google Calendar</li>
+            </ul>
+          </div>
+          <div class="stack-group">
+            <div class="stack-head">
+              <span class="stack-num">D.</span>
+              <h3>DevOps &amp; Quality</h3>
+            </div>
+            <ul class="stack-items">
+              <li>Docker · Docker Compose</li>
+              <li>Git · GitHub · Bitbucket</li>
+              <li>Jenkins · CI/CD · SonarQube</li>
+              <li>Blackfire · New Relic · Apache</li>
+              <li>PHPUnit · feature tests</li>
+            </ul>
+          </div>
+          <div class="stack-group">
+            <div class="stack-head">
+              <span class="stack-num">E.</span>
+              <h3>Leadership</h3>
+            </div>
+            <ul class="stack-items">
+              <li>Technical leadership</li>
+              <li>Code review · mentoring</li>
+              <li>Release planning · QA handoff</li>
+              <li>Production support</li>
+              <li>Cross-functional delivery</li>
+            </ul>
+          </div>
+          <div class="stack-group">
+            <div class="stack-head">
+              <span class="stack-num">F.</span>
+              <h3>Working Style</h3>
+            </div>
+            <ul class="stack-items">
+              <li>Production-first thinking</li>
+              <li>Clear written communication</li>
+              <li>Async-friendly collaboration</li>
+              <li>Calm releases &amp; safe rollbacks</li>
+              <li>Documentation as a feature</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-contact" id="contact">
+      <div class="container">
+        <div class="contact-card" data-animate>
+          <span class="eyebrow">05 — Contact</span>
+          <h2 class="contact-headline">Have a Laravel platform that needs a <em>steady hand</em>?</h2>
+          <p class="contact-lead">Open to senior contract and full-time engineering roles — especially around education, performance, and platform reliability. Best reached by email.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary btn-lg" href="mailto:aguirre@emanuel.com.ar">
+              <span>aguirre@emanuel.com.ar</span>
+              <svg class="btn-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+            <a class="btn btn-ghost btn-lg" href="https://www.linkedin.com/in/ema-dev" rel="noopener">LinkedIn ↗</a>
+            <a class="btn btn-ghost btn-lg" href="https://github.com/delmicio" rel="noopener">GitHub ↗</a>
+          </div>
+          <ul class="contact-meta">
+            <li>
+              <span class="meta-label">Based in</span>
+              <span class="meta-val">Valencia, Spain</span>
+            </li>
+            <li>
+              <span class="meta-label">Hours</span>
+              <span class="meta-val">EU &amp; US East</span>
+            </li>
+            <li>
+              <span class="meta-label">Languages</span>
+              <span class="meta-val">EN · ES (native)</span>
+            </li>
+            <li>
+              <span class="meta-label">Reply</span>
+              <span class="meta-val">Within 24 hours</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <p class="footer-copy">© 2026 Jesus Emanuel Aguirre · Crafted in Valencia</p>
+      <ul class="footer-links">
+        <li><a href="https://emanuel.com.ar" rel="noopener">emanuel.com.ar</a></li>
+        <li><a href="https://github.com/delmicio" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/ema-dev" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:aguirre@emanuel.com.ar">Email</a></li>
       </ul>
-    </section>
-  </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var html = document.documentElement;
+      var btn = document.querySelector('.theme-toggle');
+
+      if (btn) {
+        btn.addEventListener('click', function () {
+          var current = html.getAttribute('data-theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var isDark;
+          if (current === 'dark') isDark = true;
+          else if (current === 'light') isDark = false;
+          else isDark = prefersDark;
+          var next = isDark ? 'light' : 'dark';
+          html.setAttribute('data-theme', next);
+          try { localStorage.setItem('theme', next); } catch (e) {}
+        });
+      }
+
+      if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('[data-animate]').forEach(function (el) {
+          revealObserver.observe(el);
+        });
+
+        var navLinks = document.querySelectorAll('.primary-nav a');
+        var sections = document.querySelectorAll('main section[id]');
+        var spy = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              var id = '#' + entry.target.id;
+              navLinks.forEach(function (link) {
+                if (link.getAttribute('href') === id) link.classList.add('is-active');
+                else link.classList.remove('is-active');
+              });
+            }
+          });
+        }, { threshold: 0, rootMargin: '-40% 0px -55% 0px' });
+
+        sections.forEach(function (s) { spy.observe(s); });
+      } else {
+        document.querySelectorAll('[data-animate]').forEach(function (el) {
+          el.classList.add('is-visible');
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
