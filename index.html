@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#fafaf6" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
-  <title>Emanuel Aguirre — Senior PHP &amp; Laravel Developer</title>
-  <meta name="description" content="Senior backend developer building reliable Laravel platforms for education at scale. Based in Valencia, Spain.">
+  <title>Emanuel Aguirre, PHP &amp; Laravel Developer</title>
+  <meta name="description" content="Backend developer building reliable Laravel platforms for education at scale. Based in Spain.">
   <meta name="author" content="Jesus Emanuel Aguirre">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Emanuel Aguirre — Senior PHP &amp; Laravel Developer">
-  <meta property="og:description" content="Senior backend developer building reliable Laravel platforms for education at scale. Based in Valencia, Spain.">
+  <meta property="og:title" content="Emanuel Aguirre, PHP &amp; Laravel Developer">
+  <meta property="og:description" content="Backend developer building reliable Laravel platforms for education at scale. Based in Spain.">
   <meta property="og:url" content="https://emanuel.com.ar">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <link
       rel="shortcut icon"
@@ -63,7 +63,7 @@
       --accent-bg: rgba(194, 65, 12, 0.08);
       --success: #16a34a;
 
-      --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-sans: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       --font-display: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
       --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
 
@@ -466,12 +466,13 @@
 
     .hero-headline {
       font-family: var(--font-display);
-      font-size: clamp(2.75rem, 7vw, 5.5rem);
-      line-height: 1.02;
-      letter-spacing: -0.025em;
+      font-size: clamp(2.5rem, 5vw, 4.25rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
       font-weight: 400;
       margin: 0 0 2rem;
-      max-width: 18ch;
+      max-width: 22ch;
+      text-wrap: balance;
     }
 
     .hero-headline em {
@@ -549,17 +550,6 @@
     .section-head {
       margin-bottom: 3rem;
       max-width: 720px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-      font-weight: 500;
     }
 
     .section-title {
@@ -729,6 +719,7 @@
       color: var(--text-2);
       font-size: 0.97rem;
       line-height: 1.6;
+      max-width: 65ch;
     }
 
     .role-bullets li::before {
@@ -783,14 +774,6 @@
       opacity: 1;
     }
 
-    .card-num {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--text-3);
-      letter-spacing: 0.1em;
-      margin-bottom: 1.5rem;
-    }
-
     .card-badge {
       align-self: flex-start;
       padding: 0.3rem 0.7rem;
@@ -838,7 +821,7 @@
       font-size: 0.72rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--text-3);
+      color: var(--text-2);
       margin: 1.75rem 0 0;
       padding-top: 1.25rem;
       border-top: 1px solid var(--line);
@@ -928,10 +911,6 @@
       z-index: 1;
     }
 
-    .contact-card .eyebrow {
-      margin-bottom: 1.5rem;
-    }
-
     .contact-headline {
       font-family: var(--font-display);
       font-size: clamp(2rem, 5vw, 3.25rem);
@@ -1009,7 +988,7 @@
 
     .footer-copy {
       font-size: 0.85rem;
-      color: var(--text-3);
+      color: var(--text-2);
       margin: 0;
     }
 
@@ -1210,15 +1189,11 @@
   <main id="main">
     <section class="hero" id="top">
       <div class="container">
-        <div class="hero-eyebrow" data-animate>
-          <span class="status-dot" aria-hidden="true"></span>
-          <span data-i18n="hero.eyebrow">Available · EU hours</span>
-        </div>
         <h1 class="hero-headline" data-animate data-i18n="hero.headline" data-i18n-html>
           Reliable software, <em>built</em> to stay calm in production.
         </h1>
         <p class="hero-lead" data-animate data-i18n="hero.lead">
-          Hi, I'm Emanuel Aguirre — a senior PHP and Laravel developer based in Valencia. For over a decade I've helped education companies ship dependable platforms, scale them as user demand grows, and keep them calm through every release.
+          Hi, I'm Emanuel Aguirre, a PHP and Laravel developer based in Spain. For over a decade I've helped education companies ship dependable platforms, scale them as user demand grows, and keep them calm through every release.
         </p>
         <div class="hero-actions" data-animate>
           <a class="btn btn-primary" href="#contact">
@@ -1258,24 +1233,23 @@
     <section class="section section-about" id="about">
       <div class="container">
         <header class="section-head" data-animate>
-          <span class="eyebrow" data-i18n="about.eyebrow">01 — About</span>
           <h2 class="section-title" data-i18n="about.title" data-i18n-html>A developer who treats <em>production</em> like the most important feature.</h2>
         </header>
         <div class="about-grid">
           <div class="prose" data-animate>
-            <p data-i18n="about.p1">Most of my career has lived inside education platforms — places where uptime is non-negotiable, students rely on a working live class, and a slow page is a missed lesson.</p>
-            <p data-i18n="about.p2">I work end-to-end on the platforms I join: Laravel backends, third-party integrations, database design, code review, release pipelines, and the occasional production incident. I'm usually the technical voice in the room when business is weighing a new effort — translating intent into concrete solution paths and naming the trade-offs before scope locks in.</p>
-            <p data-i18n="about.p3">I've led small distributed teams through agile workflows, mentored juniors, and walked teammates through the blockers and ambiguous calls that always live around the edges of a feature — partnering across product, QA, DevOps, research, and marketing to turn fuzzy requirements into safe, observable releases.</p>
+            <p data-i18n="about.p1">Most of my career has lived inside education platforms: places where uptime is non-negotiable, students rely on a working live class, and a slow page is a missed lesson.</p>
+            <p data-i18n="about.p2">I work end-to-end on the platforms I join: Laravel backends, third-party integrations, database design, code review, release pipelines, and the occasional production incident. I'm usually the technical voice in the room when business is weighing a new effort, translating intent into concrete solution paths and naming the trade-offs before scope locks in.</p>
+            <p data-i18n="about.p3">I've led small distributed teams through agile workflows, mentored juniors, and walked teammates through the blockers and ambiguous calls that always live around the edges of a feature, partnering across product, QA, DevOps, research, and marketing to turn fuzzy requirements into safe, observable releases.</p>
           </div>
           <aside class="about-card" data-animate>
             <ul class="facts">
               <li>
                 <span class="fact-label" data-i18n="about.fact_currently_lbl">Currently</span>
-                <span class="fact-val" data-i18n="about.fact_currently_val">Senior PHP Developer at Stride</span>
+                <span class="fact-val" data-i18n="about.fact_currently_val">PHP Developer at Stride</span>
               </li>
               <li>
                 <span class="fact-label" data-i18n="about.fact_based_lbl">Based in</span>
-                <span class="fact-val" data-i18n="about.fact_based_val">Valencia, Spain · UTC+1</span>
+                <span class="fact-val" data-i18n="about.fact_based_val">Spain · UTC+1</span>
               </li>
               <li>
                 <span class="fact-label" data-i18n="about.fact_hours_lbl">Working hours</span>
@@ -1287,7 +1261,7 @@
               </li>
               <li>
                 <span class="fact-label" data-i18n="about.fact_avail_lbl">Available for</span>
-                <span class="fact-val" data-i18n="about.fact_avail_val">Senior contract &amp; full-time roles</span>
+                <span class="fact-val" data-i18n="about.fact_avail_val">Contract &amp; full-time roles</span>
               </li>
             </ul>
           </aside>
@@ -1298,14 +1272,13 @@
     <section class="section section-work" id="work">
       <div class="container">
         <header class="section-head" data-animate>
-          <span class="eyebrow" data-i18n="work.eyebrow">02 — Experience</span>
           <h2 class="section-title" data-i18n="work.title" data-i18n-html>A decade of <em>shipping</em>.</h2>
         </header>
         <div class="timeline">
           <article class="role" data-animate>
             <div class="role-side">
-              <div class="role-time" data-i18n="role.stride.time">Feb 2025 — Present</div>
-              <div class="role-where" data-i18n="role.stride.where">Remote · Valencia</div>
+              <div class="role-time" data-i18n="role.stride.time">Feb 2025 – Present</div>
+              <div class="role-where" data-i18n="role.stride.where">Remote · Spain</div>
               <ul class="role-tags">
                 <li>PHP</li>
                 <li>Okta SSO</li>
@@ -1317,18 +1290,18 @@
             </div>
             <div class="role-main">
               <h3 class="role-company">Stride</h3>
-              <p class="role-title" data-i18n="role.stride.title">Senior PHP Developer (Contract) · K12 Learning Coach Community</p>
+              <p class="role-title" data-i18n="role.stride.title">PHP Developer (Contract) · K12 Learning Coach Community</p>
               <ul class="role-bullets">
-                <li data-i18n="role.stride.b1">Own a PHP-based community platform for parents supporting K12 students at Stride — permissions, identity, deployment readiness, and stability.</li>
-                <li data-i18n="role.stride.b2">Led multi-role Okta single sign-on across parent, teacher, and school-admin access — login flows, role validation, and edge-case coverage in place before any user saw it.</li>
-                <li data-i18n="role.stride.b4">Investigated cross-stack production issues — analytics gaps, AWS SES email, load-balancer redirects, CI/CD triggers, deep-link routing, and rollback verification.</li>
+                <li data-i18n="role.stride.b1">Own a PHP-based community platform for parents supporting K12 students at Stride: permissions, identity, deployment readiness, and stability.</li>
+                <li data-i18n="role.stride.b2">Led multi-role Okta single sign-on across parent, teacher, and school-admin access: login flows, role validation, and edge-case coverage in place before any user saw it.</li>
+                <li data-i18n="role.stride.b4">Investigated cross-stack production issues: analytics gaps, AWS SES email, load-balancer redirects, CI/CD triggers, deep-link routing, and rollback verification.</li>
               </ul>
             </div>
           </article>
 
           <article class="role" data-animate>
             <div class="role-side">
-              <div class="role-time" data-i18n="role.oe.time">Jul 2018 — Jul 2024</div>
+              <div class="role-time" data-i18n="role.oe.time">Jul 2018 – Jul 2024</div>
               <div class="role-where" data-i18n="role.oe.where">Remote · LATAM</div>
               <ul class="role-tags">
                 <li>Laravel</li>
@@ -1343,8 +1316,8 @@
               <h3 class="role-company">Open English</h3>
               <p class="role-title" data-i18n="role.oe.title">Technical Lead, PHP Web Developer</p>
               <ul class="role-bullets">
-                <li data-i18n="role.oe.b1">Led OpenEnglish Junior — an English-learning platform for Latin American students with live classes and async content — and migrated it from an in-house PHP framework to Laravel without disrupting live classes.</li>
-                <li data-i18n="role.oe.b2">Managed a distributed team of five developers across time zones — daily coordination, code-review on GitHub, and growth check-ins with each one.</li>
+                <li data-i18n="role.oe.b1">Led OpenEnglish Junior, an English-learning platform for Latin American students with live classes and async content, and migrated it from an in-house PHP framework to Laravel without disrupting live classes.</li>
+                <li data-i18n="role.oe.b2">Managed a distributed team of five developers across time zones: daily coordination, code-review on GitHub, and growth check-ins with each one.</li>
                 <li data-i18n="role.oe.b4">Cut home-dashboard page load by 72% (900 ms → 250 ms) through Blackfire profiling, query optimization, and strategic caching during the migration.</li>
               </ul>
             </div>
@@ -1352,7 +1325,7 @@
 
           <article class="role" data-animate>
             <div class="role-side">
-              <div class="role-time" data-i18n="role.ss.time">Sep 2014 — Jul 2018</div>
+              <div class="role-time" data-i18n="role.ss.time">Sep 2014 – Jul 2018</div>
               <div class="role-where" data-i18n="role.ss.where">Cordoba, Argentina</div>
               <ul class="role-tags">
                 <li>PHP</li>
@@ -1367,7 +1340,7 @@
               <h3 class="role-company">StartSpanish</h3>
               <p class="role-title" data-i18n="role.ss.title">Full-Stack Web Developer</p>
               <ul class="role-bullets">
-                <li data-i18n="role.ss.b1">Owned the full web stack at an online Spanish-language education company — production systems, feature delivery, and product decisions.</li>
+                <li data-i18n="role.ss.b1">Owned the full web stack at an online Spanish-language education company: production systems, feature delivery, and product decisions.</li>
                 <li data-i18n="role.ss.b2">Rebuilt the marketing site mobile-first and refactored backend services for maintainability and delivery speed.</li>
                 <li data-i18n="role.ss.b4">Added Stripe as the primary payment option alongside PayPal, integrated Mandrill transactional email, and migrated live classes from Adobe Connect to Zoom.</li>
               </ul>
@@ -1380,34 +1353,30 @@
     <section class="section section-highlights" id="highlights">
       <div class="container">
         <header class="section-head" data-animate>
-          <span class="eyebrow" data-i18n="highlights.eyebrow">03 — Selected Highlights</span>
           <h2 class="section-title" data-i18n="highlights.title" data-i18n-html>A few wins worth <em>telling</em>.</h2>
         </header>
         <div class="cards">
           <article class="card" data-animate>
-            <span class="card-num">01</span>
             <span class="card-badge" data-i18n="card.perf.badge">Performance</span>
             <h3 class="card-title" data-i18n="card.perf.title">72% faster, end to end.</h3>
             <p class="card-stat" data-i18n="card.perf.stat" data-i18n-html>900&thinsp;ms <span class="card-arrow">→</span> 250&thinsp;ms</p>
-            <p class="card-body" data-i18n="card.perf.body">Profiled production hot paths with Blackfire, optimized the slowest queries, and added strategic caching during the Laravel migration — bringing the home dashboard from 900&thinsp;ms down to 250&thinsp;ms without changing the UX.</p>
+            <p class="card-body" data-i18n="card.perf.body">Profiled production hot paths with Blackfire, optimized the slowest queries, and added strategic caching during the Laravel migration, bringing the home dashboard from 900&thinsp;ms down to 250&thinsp;ms without changing the UX.</p>
             <p class="card-meta">Open English · 2018–2024</p>
           </article>
 
           <article class="card" data-animate>
-            <span class="card-num">02</span>
             <span class="card-badge" data-i18n="card.id.badge">Identity</span>
             <h3 class="card-title" data-i18n="card.id.title">Single sign-on across three roles.</h3>
             <p class="card-stat" data-i18n="card.id.stat" data-i18n-html>1 login <span class="card-arrow">·</span> 3 access models</p>
-            <p class="card-body" data-i18n="card.id.body">Designed and shipped Okta SSO for the Learning Coach Community — supporting Learning Coach, Teacher, and School Admin access from a single authentication flow, with edge-case coverage in place before any user saw it.</p>
+            <p class="card-body" data-i18n="card.id.body">Designed and shipped Okta SSO for the Learning Coach Community: Learning Coach, Teacher, and School Admin access from a single authentication flow, with edge-case coverage in place before any user saw it.</p>
             <p class="card-meta">Stride · 2025</p>
           </article>
 
           <article class="card" data-animate>
-            <span class="card-num">03</span>
             <span class="card-badge" data-i18n="card.mig.badge">Migration</span>
             <h3 class="card-title" data-i18n="card.mig.title">Off legacy. Onto Laravel.</h3>
             <p class="card-stat" data-i18n="card.mig.stat" data-i18n-html>In-house framework <span class="card-arrow">→</span> Laravel</p>
-            <p class="card-body" data-i18n="card.mig.body">Led the migration of OpenEnglish Junior off a hand-rolled PHP framework onto Laravel without disrupting live classes — using the move to rebuild scalability, maintainability, and developer velocity.</p>
+            <p class="card-body" data-i18n="card.mig.body">Led the migration of OpenEnglish Junior off a hand-rolled PHP framework onto Laravel without disrupting live classes, using the move to rebuild scalability, maintainability, and developer velocity.</p>
             <p class="card-meta">Open English · 2018–2024</p>
           </article>
         </div>
@@ -1417,7 +1386,6 @@
     <section class="section section-stack" id="stack">
       <div class="container">
         <header class="section-head" data-animate>
-          <span class="eyebrow" data-i18n="stack.eyebrow">04 — Toolbox</span>
           <h2 class="section-title" data-i18n="stack.title">The stack I reach for.</h2>
         </header>
         <div class="stack-grid" data-animate>
@@ -1506,9 +1474,8 @@
     <section class="section section-contact" id="contact">
       <div class="container">
         <div class="contact-card" data-animate>
-          <span class="eyebrow" data-i18n="contact.eyebrow">05 — Contact</span>
           <h2 class="contact-headline" data-i18n="contact.headline" data-i18n-html>Have a Laravel platform that needs a <em>steady hand</em>?</h2>
-          <p class="contact-lead" data-i18n="contact.lead">Open to senior contract and full-time backend roles — especially around education, performance, and platform reliability. Best reached by email.</p>
+          <p class="contact-lead" data-i18n="contact.lead">Open to contract and full-time backend roles, especially around education, performance, and platform reliability. Best reached by email.</p>
           <div class="contact-actions">
             <a class="btn btn-primary btn-lg" href="mailto:aguirre@emanuel.com.ar">
               <span>aguirre@emanuel.com.ar</span>
@@ -1522,7 +1489,7 @@
           <ul class="contact-meta">
             <li>
               <span class="meta-label" data-i18n="contact.based_lbl">Based in</span>
-              <span class="meta-val" data-i18n="contact.based_val">Valencia, Spain</span>
+              <span class="meta-val" data-i18n="contact.based_val">Spain</span>
             </li>
             <li>
               <span class="meta-label" data-i18n="contact.hours_lbl">Hours</span>
@@ -1540,7 +1507,7 @@
 
   <footer class="site-footer">
     <div class="container footer-container">
-      <p class="footer-copy" data-i18n="footer.copy">© 2026 Jesus Emanuel Aguirre · Crafted in Valencia</p>
+      <p class="footer-copy" data-i18n="footer.copy">© 2026 Jesus Emanuel Aguirre · Crafted in Spain</p>
       <ul class="footer-links">
         <li><a href="https://emanuel.com.ar" rel="noopener">emanuel.com.ar</a></li>
         <li><a href="https://github.com/delmicio" rel="noopener">GitHub</a></li>
@@ -1556,72 +1523,67 @@
 
       var translations = {
         en: {
-          'meta.title': 'Emanuel Aguirre — Senior PHP & Laravel Developer',
-          'meta.description': 'Senior backend developer building reliable Laravel platforms for education at scale. Based in Valencia, Spain.',
+          'meta.title': 'Emanuel Aguirre, PHP & Laravel Developer',
+          'meta.description': 'Backend developer building reliable Laravel platforms for education at scale. Based in Spain.',
           'nav.about': 'About',
           'nav.work': 'Work',
           'nav.highlights': 'Highlights',
           'nav.stack': 'Stack',
           'nav.contact_cta': 'Get in touch',
-          'hero.eyebrow': 'Available · EU hours',
           'hero.headline': 'Reliable software, <em>built</em> to stay calm in production.',
-          'hero.lead': 'Hi, I’m Emanuel Aguirre — a senior PHP and Laravel developer based in Valencia. For over a decade I’ve helped education companies ship dependable platforms, scale them as user demand grows, and keep them calm through every release.',
+          'hero.lead': 'Hi, I’m Emanuel Aguirre, a PHP and Laravel developer based in Spain. For over a decade I’ve helped education companies ship dependable platforms, scale them as user demand grows, and keep them calm through every release.',
           'hero.cta_primary': 'Start a conversation',
           'hero.cta_secondary': 'Browse work',
           'strip.label1': 'years building production software',
           'strip.label2': 'faster page loads at Open English',
           'strip.label3': 'developers led across time zones',
           'strip.label4': 'education platforms supported in production',
-          'about.eyebrow': '01 — About',
           'about.title': 'A developer who treats <em>production</em> like the most important feature.',
-          'about.p1': 'Most of my career has lived inside education platforms — places where uptime is non-negotiable, students rely on a working live class, and a slow page is a missed lesson.',
-          'about.p2': 'I work end-to-end on the platforms I join: Laravel backends, third-party integrations, database design, code review, release pipelines, and the occasional production incident. I’m usually the technical voice in the room when business is weighing a new effort — translating intent into concrete solution paths and naming the trade-offs before scope locks in.',
-          'about.p3': 'I’ve led small distributed teams through agile workflows, mentored juniors, and walked teammates through the blockers and ambiguous calls that always live around the edges of a feature — partnering across product, QA, DevOps, research, and marketing to turn fuzzy requirements into safe, observable releases.',
+          'about.p1': 'Most of my career has lived inside education platforms: places where uptime is non-negotiable, students rely on a working live class, and a slow page is a missed lesson.',
+          'about.p2': 'I work end-to-end on the platforms I join: Laravel backends, third-party integrations, database design, code review, release pipelines, and the occasional production incident. I’m usually the technical voice in the room when business is weighing a new effort, translating intent into concrete solution paths and naming the trade-offs before scope locks in.',
+          'about.p3': 'I’ve led small distributed teams through agile workflows, mentored juniors, and walked teammates through the blockers and ambiguous calls that always live around the edges of a feature, partnering across product, QA, DevOps, research, and marketing to turn fuzzy requirements into safe, observable releases.',
           'about.fact_currently_lbl': 'Currently',
-          'about.fact_currently_val': 'Senior PHP Developer at Stride',
+          'about.fact_currently_val': 'PHP Developer at Stride',
           'about.fact_based_lbl': 'Based in',
-          'about.fact_based_val': 'Valencia, Spain · UTC+1',
+          'about.fact_based_val': 'Spain · UTC+1',
           'about.fact_hours_lbl': 'Working hours',
           'about.fact_hours_val': 'EU & US Eastern · async-first',
           'about.fact_lang_lbl': 'Languages',
           'about.fact_lang_val': 'English · Spanish (native)',
           'about.fact_avail_lbl': 'Available for',
-          'about.fact_avail_val': 'Senior contract & full-time roles',
-          'work.eyebrow': '02 — Experience',
+          'about.fact_avail_val': 'Contract & full-time roles',
           'work.title': 'A decade of <em>shipping</em>.',
-          'role.stride.time': 'Feb 2025 — Present',
-          'role.stride.where': 'Remote · Valencia',
-          'role.stride.title': 'Senior PHP Developer (Contract) · K12 Learning Coach Community',
-          'role.stride.b1': 'Own a PHP-based community platform for parents supporting K12 students at Stride — permissions, identity, deployment readiness, and stability.',
-          'role.stride.b2': 'Led multi-role Okta single sign-on across parent, teacher, and school-admin access — login flows, role validation, and edge-case coverage in place before any user saw it.',
-          'role.stride.b4': 'Investigated cross-stack production issues — analytics gaps, AWS SES email, load-balancer redirects, CI/CD triggers, deep-link routing, and rollback verification.',
-          'role.oe.time': 'Jul 2018 — Jul 2024',
+          'role.stride.time': 'Feb 2025 – Present',
+          'role.stride.where': 'Remote · Spain',
+          'role.stride.title': 'PHP Developer (Contract) · K12 Learning Coach Community',
+          'role.stride.b1': 'Own a PHP-based community platform for parents supporting K12 students at Stride: permissions, identity, deployment readiness, and stability.',
+          'role.stride.b2': 'Led multi-role Okta single sign-on across parent, teacher, and school-admin access: login flows, role validation, and edge-case coverage in place before any user saw it.',
+          'role.stride.b4': 'Investigated cross-stack production issues: analytics gaps, AWS SES email, load-balancer redirects, CI/CD triggers, deep-link routing, and rollback verification.',
+          'role.oe.time': 'Jul 2018 – Jul 2024',
           'role.oe.where': 'Remote · LATAM',
           'role.oe.title': 'Technical Lead, PHP Web Developer',
-          'role.oe.b1': 'Led OpenEnglish Junior — an English-learning platform for Latin American students with live classes and async content — and migrated it from an in-house PHP framework to Laravel without disrupting live classes.',
-          'role.oe.b2': 'Managed a distributed team of five developers across time zones — daily coordination, code-review on GitHub, and growth check-ins with each one.',
+          'role.oe.b1': 'Led OpenEnglish Junior, an English-learning platform for Latin American students with live classes and async content, and migrated it from an in-house PHP framework to Laravel without disrupting live classes.',
+          'role.oe.b2': 'Managed a distributed team of five developers across time zones: daily coordination, code-review on GitHub, and growth check-ins with each one.',
           'role.oe.b4': 'Cut home-dashboard page load by 72% (900 ms → 250 ms) through Blackfire profiling, query optimization, and strategic caching during the migration.',
-          'role.ss.time': 'Sep 2014 — Jul 2018',
+          'role.ss.time': 'Sep 2014 – Jul 2018',
           'role.ss.where': 'Cordoba, Argentina',
           'role.ss.title': 'Full-Stack Web Developer',
-          'role.ss.b1': 'Owned the full web stack at an online Spanish-language education company — production systems, feature delivery, and product decisions.',
+          'role.ss.b1': 'Owned the full web stack at an online Spanish-language education company: production systems, feature delivery, and product decisions.',
           'role.ss.b2': 'Rebuilt the marketing site mobile-first and refactored backend services for maintainability and delivery speed.',
           'role.ss.b4': 'Added Stripe as the primary payment option alongside PayPal, integrated Mandrill transactional email, and migrated live classes from Adobe Connect to Zoom.',
-          'highlights.eyebrow': '03 — Selected Highlights',
           'highlights.title': 'A few wins worth <em>telling</em>.',
           'card.perf.badge': 'Performance',
           'card.perf.title': '72% faster, end to end.',
           'card.perf.stat': '900&thinsp;ms <span class="card-arrow">→</span> 250&thinsp;ms',
-          'card.perf.body': 'Profiled production hot paths with Blackfire, optimized the slowest queries, and added strategic caching during the Laravel migration — bringing the home dashboard from 900 ms down to 250 ms without changing the UX.',
+          'card.perf.body': 'Profiled production hot paths with Blackfire, optimized the slowest queries, and added strategic caching during the Laravel migration, bringing the home dashboard from 900 ms down to 250 ms without changing the UX.',
           'card.id.badge': 'Identity',
           'card.id.title': 'Single sign-on across three roles.',
           'card.id.stat': '1 login <span class="card-arrow">·</span> 3 access models',
-          'card.id.body': 'Designed and shipped Okta SSO for the Learning Coach Community — supporting Learning Coach, Teacher, and School Admin access from a single authentication flow, with edge-case coverage in place before any user saw it.',
+          'card.id.body': 'Designed and shipped Okta SSO for the Learning Coach Community: Learning Coach, Teacher, and School Admin access from a single authentication flow, with edge-case coverage in place before any user saw it.',
           'card.mig.badge': 'Migration',
           'card.mig.title': 'Off legacy. Onto Laravel.',
           'card.mig.stat': 'In-house framework <span class="card-arrow">→</span> Laravel',
-          'card.mig.body': 'Led the migration of OpenEnglish Junior off a hand-rolled PHP framework onto Laravel without disrupting live classes — using the move to rebuild scalability, maintainability, and developer velocity.',
-          'stack.eyebrow': '04 — Toolbox',
+          'card.mig.body': 'Led the migration of OpenEnglish Junior off a hand-rolled PHP framework onto Laravel without disrupting live classes, using the move to rebuild scalability, maintainability, and developer velocity.',
           'stack.title': 'The stack I reach for.',
           'stack.backend': 'Backend',
           'stack.backend.i3': 'REST APIs · queues · Horizon',
@@ -1646,85 +1608,79 @@
           'stack.style.i3': 'Async-friendly collaboration',
           'stack.style.i4': 'Calm releases & safe rollbacks',
           'stack.style.i5': 'Documentation as a feature',
-          'contact.eyebrow': '05 — Contact',
           'contact.headline': 'Have a Laravel platform that needs a <em>steady hand</em>?',
-          'contact.lead': 'Open to senior contract and full-time backend roles — especially around education, performance, and platform reliability. Best reached by email.',
+          'contact.lead': 'Open to contract and full-time backend roles, especially around education, performance, and platform reliability. Best reached by email.',
           'contact.based_lbl': 'Based in',
-          'contact.based_val': 'Valencia, Spain',
+          'contact.based_val': 'Spain',
           'contact.hours_lbl': 'Hours',
           'contact.hours_val': 'EU & US East',
           'contact.lang_lbl': 'Languages',
           'contact.lang_val': 'EN · ES (native)',
-          'footer.copy': '© 2026 Jesus Emanuel Aguirre · Crafted in Valencia',
+          'footer.copy': '© 2026 Jesus Emanuel Aguirre · Crafted in Spain',
           'footer.email': 'Email'
         },
         es: {
-          'meta.title': 'Emanuel Aguirre — Desarrollador Senior de PHP y Laravel',
-          'meta.description': 'Desarrollador senior de backend que construye plataformas Laravel confiables para educación a gran escala. Con base en Valencia, España.',
+          'meta.title': 'Emanuel Aguirre, Desarrollador de PHP y Laravel',
+          'meta.description': 'Desarrollador de backend que construye plataformas Laravel confiables para educación a gran escala. Con base en España.',
           'nav.about': 'Acerca',
           'nav.work': 'Experiencia',
           'nav.highlights': 'Destacados',
           'nav.stack': 'Stack',
           'nav.contact_cta': 'Hablemos',
-          'hero.eyebrow': 'Disponible · horario europeo',
           'hero.headline': 'Software confiable, <em>construido</em> para mantener la calma en producción.',
-          'hero.lead': 'Hola, soy Emanuel Aguirre — desarrollador senior de PHP y Laravel con base en Valencia. Durante más de una década he ayudado a empresas de educación a lanzar plataformas confiables, escalarlas mientras crece la demanda y mantenerlas estables en cada release.',
+          'hero.lead': 'Hola, soy Emanuel Aguirre, desarrollador de PHP y Laravel con base en España. Durante más de una década he ayudado a empresas de educación a lanzar plataformas confiables, escalarlas mientras crece la demanda y mantenerlas estables en cada release.',
           'hero.cta_primary': 'Iniciar una conversación',
           'hero.cta_secondary': 'Ver experiencia',
           'strip.label1': 'años construyendo software en producción',
           'strip.label2': 'más rápida la carga de página en Open English',
           'strip.label3': 'desarrolladores liderados en distintas zonas horarias',
           'strip.label4': 'plataformas educativas mantenidas en producción',
-          'about.eyebrow': '01 — Acerca',
           'about.title': 'Un desarrollador que trata la <em>producción</em> como la función más importante.',
-          'about.p1': 'Mi carrera se ha desarrollado dentro de plataformas educativas — lugares donde el uptime no es negociable, los estudiantes dependen de una clase en vivo funcionando y una página lenta es una lección perdida.',
-          'about.p2': 'Trabajo de punta a punta en las plataformas en las que entro: backends en Laravel, integraciones con terceros, diseño de bases de datos, revisión de código, pipelines de release y algún incidente de producción ocasional. Suelo ser la voz técnica en la mesa cuando negocio está sopesando una nueva iniciativa — traduciendo la intención en rutas de solución concretas y nombrando los trade-offs antes de cerrar el alcance.',
-          'about.p3': 'He liderado equipos pequeños distribuidos con metodologías ágiles, mentoreado a desarrolladores junior y acompañado al equipo en los bloqueos y decisiones ambiguas que siempre viven en los bordes de una funcionalidad — colaborando con producto, QA, DevOps, research y marketing para convertir requerimientos difusos en releases seguros y observables.',
+          'about.p1': 'Mi carrera se ha desarrollado dentro de plataformas educativas: lugares donde el uptime no es negociable, los estudiantes dependen de una clase en vivo funcionando y una página lenta es una lección perdida.',
+          'about.p2': 'Trabajo de punta a punta en las plataformas en las que entro: backends en Laravel, integraciones con terceros, diseño de bases de datos, revisión de código, pipelines de release y algún incidente de producción ocasional. Suelo ser la voz técnica en la mesa cuando negocio está sopesando una nueva iniciativa, traduciendo la intención en rutas de solución concretas y nombrando los trade-offs antes de cerrar el alcance.',
+          'about.p3': 'He liderado equipos pequeños distribuidos con metodologías ágiles, mentoreado a desarrolladores junior y acompañado al equipo en los bloqueos y decisiones ambiguas que siempre viven en los bordes de una funcionalidad, colaborando con producto, QA, DevOps, research y marketing para convertir requerimientos difusos en releases seguros y observables.',
           'about.fact_currently_lbl': 'Actualmente',
-          'about.fact_currently_val': 'Senior PHP Developer en Stride',
+          'about.fact_currently_val': 'PHP Developer en Stride',
           'about.fact_based_lbl': 'Ubicación',
-          'about.fact_based_val': 'Valencia, España · UTC+1',
+          'about.fact_based_val': 'España · UTC+1',
           'about.fact_hours_lbl': 'Horario',
           'about.fact_hours_val': 'Europa y EE.UU. Este · async-first',
           'about.fact_lang_lbl': 'Idiomas',
           'about.fact_lang_val': 'Español (nativo) · Inglés',
           'about.fact_avail_lbl': 'Disponible para',
-          'about.fact_avail_val': 'Roles senior por contrato y tiempo completo',
-          'work.eyebrow': '02 — Experiencia',
+          'about.fact_avail_val': 'Roles por contrato y tiempo completo',
           'work.title': 'Una década <em>entregando</em>.',
-          'role.stride.time': 'Feb 2025 — Presente',
-          'role.stride.where': 'Remoto · Valencia',
-          'role.stride.title': 'Senior PHP Developer (Contrato) · K12 Learning Coach Community',
-          'role.stride.b1': 'A cargo de una plataforma de comunidad en PHP para los padres que acompañan a estudiantes K12 en Stride — permisos, identidad, preparación para despliegues y estabilidad.',
-          'role.stride.b2': 'Lideré el single sign-on multi-rol con Okta para accesos de padres, docentes y administradores escolares — flujos de login, validación de roles y cobertura de casos límite en su lugar antes de que ningún usuario lo viera.',
-          'role.stride.b4': 'Investigué incidentes de producción cross-stack — huecos en la analítica, emails transaccionales (AWS SES), redirecciones del balanceador, triggers de CI/CD, ruteo de deep links y verificación de rollbacks.',
-          'role.oe.time': 'Jul 2018 — Jul 2024',
+          'role.stride.time': 'Feb 2025 – Presente',
+          'role.stride.where': 'Remoto · España',
+          'role.stride.title': 'PHP Developer (Contrato) · K12 Learning Coach Community',
+          'role.stride.b1': 'A cargo de una plataforma de comunidad en PHP para los padres que acompañan a estudiantes K12 en Stride: permisos, identidad, preparación para despliegues y estabilidad.',
+          'role.stride.b2': 'Lideré el single sign-on multi-rol con Okta para accesos de padres, docentes y administradores escolares: flujos de login, validación de roles y cobertura de casos límite en su lugar antes de que ningún usuario lo viera.',
+          'role.stride.b4': 'Investigué incidentes de producción cross-stack: huecos en la analítica, emails transaccionales (AWS SES), redirecciones del balanceador, triggers de CI/CD, ruteo de deep links y verificación de rollbacks.',
+          'role.oe.time': 'Jul 2018 – Jul 2024',
           'role.oe.where': 'Remoto · LATAM',
           'role.oe.title': 'Líder Técnico, PHP Web Developer',
-          'role.oe.b1': 'Lideré OpenEnglish Junior — la plataforma de aprendizaje de inglés para estudiantes latinoamericanos con clases en vivo y contenido asíncrono — y la migré desde un framework PHP propio a Laravel sin interrumpir las clases en vivo.',
-          'role.oe.b2': 'Gestioné un equipo distribuido de cinco desarrolladores en distintas zonas horarias — coordinación diaria, revisión de código en GitHub y conversaciones de crecimiento con cada uno.',
+          'role.oe.b1': 'Lideré OpenEnglish Junior, la plataforma de aprendizaje de inglés para estudiantes latinoamericanos con clases en vivo y contenido asíncrono, y la migré desde un framework PHP propio a Laravel sin interrumpir las clases en vivo.',
+          'role.oe.b2': 'Gestioné un equipo distribuido de cinco desarrolladores en distintas zonas horarias: coordinación diaria, revisión de código en GitHub y conversaciones de crecimiento con cada uno.',
           'role.oe.b4': 'Bajé el tiempo de carga del dashboard principal en un 72% (900 ms → 250 ms) mediante profiling con Blackfire, optimización de queries y caching estratégico durante la migración.',
-          'role.ss.time': 'Sep 2014 — Jul 2018',
+          'role.ss.time': 'Sep 2014 – Jul 2018',
           'role.ss.where': 'Córdoba, Argentina',
           'role.ss.title': 'Full-Stack Web Developer',
-          'role.ss.b1': 'A cargo de todo el stack web en una empresa de educación en español online — sistemas en producción, entrega de funcionalidades y decisiones de producto.',
+          'role.ss.b1': 'A cargo de todo el stack web en una empresa de educación en español online: sistemas en producción, entrega de funcionalidades y decisiones de producto.',
           'role.ss.b2': 'Reconstruí el sitio de marketing con enfoque mobile-first y refactoricé los servicios de backend para mejorar la mantenibilidad y la velocidad de entrega.',
           'role.ss.b4': 'Sumé Stripe como opción de pago principal junto a PayPal, integré Mandrill para emails transaccionales y migré las clases en vivo de Adobe Connect a Zoom.',
-          'highlights.eyebrow': '03 — Logros Destacados',
           'highlights.title': 'Algunos logros que vale la pena <em>contar</em>.',
           'card.perf.badge': 'Rendimiento',
           'card.perf.title': '72% más rápido, de punta a punta.',
           'card.perf.stat': '900&thinsp;ms <span class="card-arrow">→</span> 250&thinsp;ms',
-          'card.perf.body': 'Hice profiling de los hot paths con Blackfire, optimicé las queries más lentas y agregué caching estratégico durante la migración a Laravel — bajando el dashboard de 900 ms a 250 ms sin cambiar la UX.',
+          'card.perf.body': 'Hice profiling de los hot paths con Blackfire, optimicé las queries más lentas y agregué caching estratégico durante la migración a Laravel, bajando el dashboard de 900 ms a 250 ms sin cambiar la UX.',
           'card.id.badge': 'Identidad',
           'card.id.title': 'Single sign-on para tres tipos de usuarios.',
           'card.id.stat': '1 login <span class="card-arrow">·</span> 3 modelos de acceso',
-          'card.id.body': 'Diseñé e implementé Okta SSO para Learning Coach Community — soportando accesos de Learning Coach, Teacher y School Admin desde un único flujo de autenticación, con cobertura de casos límite antes de que algún usuario lo viera.',
+          'card.id.body': 'Diseñé e implementé Okta SSO para Learning Coach Community: accesos de Learning Coach, Teacher y School Admin desde un único flujo de autenticación, con cobertura de casos límite antes de que algún usuario lo viera.',
           'card.mig.badge': 'Migración',
           'card.mig.title': 'Salir del legacy. Entrar a Laravel.',
           'card.mig.stat': 'Framework propio <span class="card-arrow">→</span> Laravel',
-          'card.mig.body': 'Lideré la migración de OpenEnglish Junior desde un framework PHP propio hacia Laravel sin interrumpir las clases en vivo — aprovechando el cambio para reconstruir escalabilidad, mantenibilidad y velocidad del equipo.',
-          'stack.eyebrow': '04 — Stack',
+          'card.mig.body': 'Lideré la migración de OpenEnglish Junior desde un framework PHP propio hacia Laravel sin interrumpir las clases en vivo, aprovechando el cambio para reconstruir escalabilidad, mantenibilidad y velocidad del equipo.',
           'stack.title': 'El stack que utilizo.',
           'stack.backend': 'Backend',
           'stack.backend.i3': 'APIs REST · colas · Horizon',
@@ -1749,16 +1705,15 @@
           'stack.style.i3': 'Colaboración async-friendly',
           'stack.style.i4': 'Releases tranquilos y rollbacks seguros',
           'stack.style.i5': 'Documentación como funcionalidad',
-          'contact.eyebrow': '05 — Contacto',
           'contact.headline': '¿Una plataforma Laravel que necesita una <em>mano firme</em>?',
-          'contact.lead': 'Abierto a roles senior de backend por contrato o tiempo completo — especialmente en educación, rendimiento y confiabilidad de plataformas. La mejor forma de contactarme es por email.',
+          'contact.lead': 'Abierto a roles de backend por contrato o tiempo completo, especialmente en educación, rendimiento y confiabilidad de plataformas. La mejor forma de contactarme es por email.',
           'contact.based_lbl': 'Ubicación',
-          'contact.based_val': 'Valencia, España',
+          'contact.based_val': 'España',
           'contact.hours_lbl': 'Horario',
           'contact.hours_val': 'Europa y EE.UU. Este',
           'contact.lang_lbl': 'Idiomas',
           'contact.lang_val': 'ES (nativo) · EN',
-          'footer.copy': '© 2026 Jesus Emanuel Aguirre · Hecho en Valencia',
+          'footer.copy': '© 2026 Jesus Emanuel Aguirre · Hecho en España',
           'footer.email': 'Email'
         }
       };
