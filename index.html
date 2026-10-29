@@ -3,20 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#fafaf6" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#14110e">
   <title>Emanuel Aguirre, PHP &amp; Laravel Developer</title>
-  <meta name="description" content="Backend developer building reliable Laravel platforms for education at scale. Based in Spain.">
+  <meta name="description" content="PHP and Laravel backend developer in Spain, keeping production platforms reliable for over a decade.">
   <meta name="author" content="Jesus Emanuel Aguirre">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Emanuel Aguirre, PHP &amp; Laravel Developer">
-  <meta property="og:description" content="Backend developer building reliable Laravel platforms for education at scale. Based in Spain.">
+  <meta property="og:description" content="PHP and Laravel backend developer in Spain, keeping production platforms reliable for over a decade.">
   <meta property="og:url" content="https://emanuel.com.ar">
   <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <link
       rel="shortcut icon"
@@ -25,1163 +24,315 @@
 
   <script>
     (function () {
-      try {
-        var stored = localStorage.getItem('theme');
-        if (stored === 'dark' || stored === 'light') {
-          document.documentElement.setAttribute('data-theme', stored);
-        }
-      } catch (e) {}
-    })();
-    (function () {
-      var lang = 'en';
+      var html = document.documentElement;
+      html.classList.add('js');
+      var nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+      var lang = nav.indexOf('es') === 0 ? 'es' : 'en';
       try {
         var stored = localStorage.getItem('lang');
-        if (stored === 'en' || stored === 'es') {
-          lang = stored;
-        } else {
-          var nav = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
-          if (nav.indexOf('es') === 0) lang = 'es';
-        }
+        if (stored === 'en' || stored === 'es') lang = stored;
       } catch (e) {}
-      document.documentElement.setAttribute('data-lang', lang);
-      document.documentElement.lang = lang;
+      html.setAttribute('data-lang', lang);
+      html.lang = lang;
     })();
   </script>
 
   <style>
-    :root {
-      --bg: #fafaf6;
-      --surface: #ffffff;
-      --surface-2: #f3f1ea;
-      --text: #0d0d0d;
-      --text-2: #525252;
-      --text-3: #8a8a87;
-      --line: rgba(13, 13, 13, 0.08);
-      --line-strong: rgba(13, 13, 13, 0.18);
-      --accent: #c2410c;
-      --accent-hover: #9a3412;
-      --accent-bg: rgba(194, 65, 12, 0.08);
-      --success: #16a34a;
 
-      --font-sans: "Bricolage Grotesque", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --font-display: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
-
-      --radius-sm: 8px;
-      --radius-md: 14px;
-      --radius-lg: 22px;
-      --radius-pill: 999px;
-
-      --container: 1180px;
-      --pad: clamp(1.25rem, 4vw, 2.5rem);
-
-      --t-fast: 0.15s ease;
-      --t-base: 0.25s ease;
-      --t-slow: 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    [data-theme="dark"] {
-      --bg: #0a0a0a;
-      --surface: #131313;
-      --surface-2: #1a1a1a;
-      --text: #ededed;
-      --text-2: #a3a3a3;
-      --text-3: #6e6e6e;
-      --line: rgba(237, 237, 237, 0.08);
-      --line-strong: rgba(237, 237, 237, 0.18);
-      --accent: #fb923c;
-      --accent-hover: #fdba74;
-      --accent-bg: rgba(251, 146, 60, 0.1);
-      --success: #22c55e;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) {
-        --bg: #0a0a0a;
-        --surface: #131313;
-        --surface-2: #1a1a1a;
-        --text: #ededed;
-        --text-2: #a3a3a3;
-        --text-3: #6e6e6e;
-        --line: rgba(237, 237, 237, 0.08);
-        --line-strong: rgba(237, 237, 237, 0.18);
-        --accent: #fb923c;
-        --accent-hover: #fdba74;
-        --accent-bg: rgba(251, 146, 60, 0.1);
-        --success: #22c55e;
-      }
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      -webkit-text-size-adjust: 100%;
-      scroll-padding-top: 80px;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
-      transition: background-color var(--t-base), color var(--t-base);
-    }
-
-    body::selection,
-    *::selection {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    img,
-    svg {
-      display: block;
-      max-width: 100%;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-      color: inherit;
-      background: none;
-      border: 0;
-      cursor: pointer;
-    }
-
-    .container {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding-left: var(--pad);
-      padding-right: var(--pad);
-    }
-
-    .skip-link {
-      position: absolute;
-      left: -9999px;
-      top: 0;
-      padding: 0.6rem 1rem;
-      background: var(--text);
-      color: var(--bg);
-      border-radius: 0 0 var(--radius-sm) 0;
-      z-index: 1000;
-    }
-
-    .skip-link:focus {
-      left: 0;
-    }
-
-    /* ───── Header ───── */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: color-mix(in srgb, var(--bg) 80%, transparent);
-      backdrop-filter: saturate(180%) blur(14px);
-      -webkit-backdrop-filter: saturate(180%) blur(14px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      padding-top: 0.85rem;
-      padding-bottom: 0.85rem;
-    }
-
-    .logo {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      font-style: italic;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      transition: color var(--t-fast);
-    }
-
-    .logo:hover {
-      color: var(--accent);
-    }
-
-    .primary-nav {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .primary-nav a {
-      position: relative;
-      font-size: 0.9rem;
-      color: var(--text-2);
-      transition: color var(--t-fast);
-      padding: 0.3rem 0;
-    }
-
-    .primary-nav a:hover {
-      color: var(--text);
-    }
-
-    .primary-nav a.is-active {
-      color: var(--text);
-    }
-
-    .primary-nav a.is-active::after {
-      content: "";
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: var(--accent);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .theme-toggle {
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      border-radius: 50%;
-      color: var(--text);
-      transition: border-color var(--t-fast), transform var(--t-fast), background var(--t-fast);
-    }
-
-    .theme-toggle:hover {
-      border-color: var(--line-strong);
-      transform: rotate(20deg);
-    }
-
-    .theme-toggle .icon-sun { display: none; }
-    .theme-toggle .icon-moon { display: block; }
-
-    [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
-    [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
-
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
-      :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
-    }
-
-    /* ───── Language toggle ───── */
-    .lang-toggle {
-      display: inline-flex;
-      align-items: center;
-      height: 36px;
-      padding: 0 0.5rem;
-      gap: 0.15rem;
-      border: 1px solid var(--line);
-      background: var(--surface);
-      border-radius: var(--radius-pill);
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      letter-spacing: 0.04em;
-      transition: border-color var(--t-fast);
-    }
-
-    .lang-toggle:hover {
-      border-color: var(--line-strong);
-    }
-
-    .lang-toggle button {
-      position: relative;
-      padding: 0.3rem 0.4rem;
-      font-family: inherit;
-      font-size: inherit;
-      letter-spacing: inherit;
-      font-weight: 500;
-      color: var(--text-3);
-      cursor: pointer;
-      transition: color var(--t-fast);
-    }
-
-    .lang-toggle button:hover:not(.is-active) {
-      color: var(--text-2);
-    }
-
-    .lang-toggle button.is-active {
-      color: var(--accent);
-    }
-
-    .lang-toggle button.is-active::after {
-      content: "";
-      position: absolute;
-      left: 0.4rem;
-      right: 0.4rem;
-      bottom: 0.18rem;
-      height: 1px;
-      background: var(--accent);
-    }
-
-    .lang-toggle .sep {
-      color: var(--text-3);
-      opacity: 0.5;
-      user-select: none;
-      pointer-events: none;
-      font-weight: 300;
-    }
-
-    /* ───── Buttons ───── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 1.4rem;
-      border-radius: var(--radius-pill);
-      font-size: 0.95rem;
-      font-weight: 500;
-      letter-spacing: -0.005em;
-      transition: transform var(--t-fast), background-color var(--t-fast),
-        color var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
-      white-space: nowrap;
-      will-change: transform;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-sm {
-      padding: 0.55rem 1rem;
-      font-size: 0.875rem;
-    }
-
-    .btn-lg {
-      padding: 1rem 1.6rem;
-      font-size: 1rem;
-    }
-
-    .btn-primary {
-      background: var(--text);
-      color: var(--bg);
-      border: 1px solid var(--text);
-    }
-
-    .btn-primary:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-      box-shadow: 0 8px 24px -8px var(--accent);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--line-strong);
-    }
-
-    .btn-ghost:hover {
-      border-color: var(--text);
-      background: var(--surface);
-    }
-
-    .btn-arrow {
-      transition: transform var(--t-fast);
-    }
-
-    .btn:hover .btn-arrow {
-      transform: translate(2px, -2px);
-    }
-
-    /* ───── Hero ───── */
-    .hero {
-      padding: clamp(4rem, 12vh, 7.5rem) 0 clamp(3rem, 8vh, 5rem);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(60% 40% at 80% 0%, var(--accent-bg) 0%, transparent 60%),
-        radial-gradient(40% 30% at 5% 30%, var(--accent-bg) 0%, transparent 70%);
-      opacity: 0.7;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .hero > .container {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.45rem 0.95rem 0.45rem 0.7rem;
-      border: 1px solid var(--line-strong);
-      border-radius: var(--radius-pill);
-      font-size: 0.83rem;
-      font-weight: 500;
-      color: var(--text-2);
-      background: var(--surface);
-      margin-bottom: 2.25rem;
-    }
-
-    .status-dot {
-      position: relative;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--success);
-      flex-shrink: 0;
-    }
-
-    .status-dot::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background: var(--success);
-      animation: ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
-    }
-
-    @keyframes ping {
-      0% { transform: scale(1); opacity: 0.7; }
-      75%, 100% { transform: scale(2.6); opacity: 0; }
-    }
-
-    .hero-headline {
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 5vw, 4.25rem);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      font-weight: 400;
-      margin: 0 0 2rem;
-      max-width: 22ch;
-      text-wrap: balance;
-    }
-
-    .hero-headline em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .hero-lead {
-      font-size: clamp(1.05rem, 1.4vw, 1.2rem);
-      line-height: 1.55;
-      color: var(--text-2);
-      max-width: 60ch;
-      margin: 0 0 2.5rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    /* ───── Stats Strip ───── */
-    .strip {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 2.25rem 0;
-      background: var(--surface-2);
-    }
-
-    .strip-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem 2.5rem;
-    }
-
-    .strip-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .strip-num {
-      font-family: var(--font-display);
-      font-size: clamp(1.85rem, 3.5vw, 2.75rem);
-      line-height: 1;
-      letter-spacing: -0.025em;
-      color: var(--text);
-    }
-
-    .strip-num span {
-      color: var(--accent);
-      margin-left: 0.05em;
-    }
-
-    .strip-label {
-      font-size: 0.85rem;
-      color: var(--text-2);
-      line-height: 1.4;
-      max-width: 24ch;
-    }
-
-    /* ───── Sections ───── */
-    .section {
-      padding: clamp(4rem, 10vh, 7rem) 0;
-      position: relative;
-    }
-
-    .section + .section {
-      border-top: 1px solid var(--line);
-    }
-
-    .section-head {
-      margin-bottom: 3rem;
-      max-width: 720px;
-    }
-
-    .section-title {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 4.5vw, 3.25rem);
-      line-height: 1.05;
-      letter-spacing: -0.025em;
-      font-weight: 400;
-      margin: 0;
-      color: var(--text);
-    }
-
-    .section-title em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    /* ───── About ───── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 360px);
-      gap: 4rem;
-      align-items: start;
-    }
-
-    .prose p {
-      font-size: 1.075rem;
-      line-height: 1.65;
-      color: var(--text-2);
-      margin: 0 0 1.25rem;
-    }
-
-    .prose p:first-child {
-      color: var(--text);
-      font-size: 1.2rem;
-      line-height: 1.55;
-    }
-
-    .prose p:last-child {
-      margin-bottom: 0;
-    }
-
-    .about-card {
-      padding: 2rem;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      position: sticky;
-      top: 6rem;
-    }
-
-    .facts {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 1.1rem;
-    }
-
-    .facts li {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-      padding-bottom: 1.1rem;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .facts li:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-
-    .fact-label {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-3);
-    }
-
-    .fact-val {
-      font-size: 0.95rem;
-      color: var(--text);
-      line-height: 1.4;
-    }
-
-    /* ───── Experience Timeline ───── */
-    .timeline {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .role {
-      display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 3rem;
-      padding: 3rem 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .role-side {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .role-time {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      color: var(--text);
-      font-weight: 500;
-    }
-
-    .role-where {
-      font-size: 0.85rem;
-      color: var(--text-2);
-    }
-
-    .role-tags {
-      list-style: none;
-      padding: 0;
-      margin: 0.5rem 0 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .role-tags li {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      padding: 0.3rem 0.6rem;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-pill);
-      color: var(--text-2);
-      background: var(--surface);
-    }
-
-    .role-company {
-      font-family: var(--font-display);
-      font-size: clamp(1.85rem, 3vw, 2.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin: 0 0 0.4rem;
-      font-weight: 400;
-    }
-
-    .role-title {
-      font-size: 1rem;
-      color: var(--text-2);
-      margin: 0 0 1.5rem;
-      line-height: 1.4;
-    }
-
-    .role-bullets {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-    }
-
-    .role-bullets li {
-      position: relative;
-      padding-left: 1.25rem;
-      color: var(--text-2);
-      font-size: 0.97rem;
-      line-height: 1.6;
-      max-width: 65ch;
-    }
-
-    .role-bullets li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.65rem;
-      width: 0.5rem;
-      height: 1px;
-      background: var(--accent);
-    }
-
-    /* ───── Highlights Cards ───── */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
-
-    .card {
-      display: flex;
-      flex-direction: column;
-      padding: 2rem;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      transition: border-color var(--t-base), transform var(--t-base),
-        box-shadow var(--t-base);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0;
-      transition: opacity var(--t-base);
-    }
-
-    .card:hover {
-      border-color: var(--line-strong);
-      transform: translateY(-3px);
-      box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.15);
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card-badge {
-      align-self: flex-start;
-      padding: 0.3rem 0.7rem;
-      background: var(--accent-bg);
-      color: var(--accent);
-      border-radius: var(--radius-pill);
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
-    }
-
-    .card-title {
-      font-family: var(--font-display);
-      font-size: 1.65rem;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      font-weight: 400;
-      margin: 0 0 1rem;
-    }
-
-    .card-stat {
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      color: var(--text);
-      margin: 0 0 1.25rem;
-      letter-spacing: -0.01em;
-    }
-
-    .card-stat .card-arrow {
-      color: var(--accent);
-      margin: 0 0.4rem;
-    }
-
-    .card-body {
-      font-size: 0.95rem;
-      color: var(--text-2);
-      line-height: 1.6;
-      margin: 0 0 auto;
-    }
-
-    .card-meta {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-2);
-      margin: 1.75rem 0 0;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--line);
-    }
-
-    /* ───── Stack ───── */
-    .stack-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 3rem 4rem;
-    }
-
-    .stack-group {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .stack-head {
-      display: flex;
-      align-items: baseline;
-      gap: 0.7rem;
-      padding-bottom: 0.85rem;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .stack-num {
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .stack-head h3 {
-      font-size: 1.1rem;
-      margin: 0;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-    }
-
-    .stack-items {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-    }
-
-    .stack-items li {
-      font-size: 0.95rem;
-      color: var(--text-2);
-      line-height: 1.45;
-    }
-
-    /* ───── Contact ───── */
-    .section-contact {
-      padding-bottom: clamp(4rem, 10vh, 7rem);
-    }
-
-    .contact-card {
-      padding: clamp(2.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      text-align: center;
-      max-width: 920px;
-      margin: 0 auto;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-card::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -10%;
-      width: 80%;
-      height: 100%;
-      background: radial-gradient(closest-side, var(--accent-bg), transparent);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .contact-card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .contact-headline {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3.25rem);
-      line-height: 1.05;
-      letter-spacing: -0.025em;
-      font-weight: 400;
-      margin: 0 0 1.25rem;
-    }
-
-    .contact-headline em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .contact-lead {
-      font-size: 1.1rem;
-      line-height: 1.55;
-      color: var(--text-2);
-      max-width: 52ch;
-      margin: 0 auto 2.5rem;
-    }
-
-    .contact-actions {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.75rem;
-      margin-bottom: 3rem;
-    }
-
-    .contact-meta {
-      list-style: none;
-      margin: 0;
-      padding: 2rem 0 0;
-      border-top: 1px solid var(--line);
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .contact-meta li {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      align-items: center;
-      text-align: center;
-    }
-
-    .meta-label {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-3);
-    }
-
-    .meta-val {
-      font-size: 0.92rem;
-      color: var(--text);
-    }
-
-    /* ───── Footer ───── */
-    .site-footer {
-      border-top: 1px solid var(--line);
-      padding: 2rem 0;
-    }
-
-    .footer-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .footer-copy {
-      font-size: 0.85rem;
-      color: var(--text-2);
-      margin: 0;
-    }
-
-    .footer-links {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .footer-links a {
-      font-size: 0.85rem;
-      color: var(--text-2);
-      transition: color var(--t-fast);
-    }
-
-    .footer-links a:hover {
-      color: var(--accent);
-    }
-
-    /* ───── Animations ───── */
-    [data-animate] {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity var(--t-slow), transform var(--t-slow);
-    }
-
-    [data-animate].is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-      [data-animate] {
-        opacity: 1;
-        transform: none;
-      }
-      html {
-        scroll-behavior: auto;
-      }
-    }
-
-    /* ───── Focus styles ───── */
-    a:focus-visible,
-    button:focus-visible {
-      outline: 2px solid var(--accent);
-      outline-offset: 3px;
-      border-radius: 4px;
-    }
-
-    .btn:focus-visible {
-      outline-offset: 4px;
-    }
-
-    /* ───── Responsive ───── */
-    @media (max-width: 1000px) {
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-      .about-card {
-        position: static;
-      }
-      .stack-grid {
-        gap: 2.5rem 3rem;
-      }
-    }
-
-    @media (max-width: 880px) {
-      .cards {
-        grid-template-columns: 1fr;
-      }
-      .role {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 2.5rem 0;
-      }
-      .role-side {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 1rem 1.5rem;
-      }
-      .role-tags {
-        margin-top: 0;
-        order: 4;
-        flex-basis: 100%;
-      }
-      .strip-list {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .contact-meta {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.75rem;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .primary-nav {
-        display: none;
-      }
-      .stack-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .strip-list {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-      }
-      .hero-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .hero-actions .btn {
-        justify-content: center;
-      }
-      .contact-actions {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .contact-actions .btn {
-        justify-content: center;
-      }
-      .footer-container {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-
-    @media print {
-      .site-header,
-      .theme-toggle,
-      .hero-actions,
-      .contact-actions,
-      .site-footer {
-        display: none;
-      }
-      .section {
-        padding: 1rem 0;
-        page-break-inside: avoid;
-      }
-      body {
-        background: white;
-        color: black;
-      }
-    }
+:root {
+  color-scheme: dark;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(72% 0.15 27); --color-success: oklch(76% 0.13 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+  --color-paper: oklch(13% 0.01 60); --color-paper-2: oklch(17% 0.011 60); --color-paper-3: oklch(22% 0.012 60);
+  --color-ink: oklch(95% 0.014 85); --color-ink-2: oklch(84% 0.012 80); --color-muted: oklch(64% 0.016 65);
+  --color-rule: oklch(31% 0.014 60);
+  --color-accent: oklch(57% 0.228 28); --color-accent-deep: oklch(49% 0.2 28); --color-accent-text: oklch(57% 0.228 28); --color-accent-ink: oklch(98.5% 0.004 90);
+  --color-focus: oklch(57% 0.228 28);
+  --font-display: "Anton", "Impact", sans-serif; --font-body: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-outlier: var(--font-body);
+  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-bar: 4px; --shadow-card: none;
+  --tracking-display: 0.004em; --display-weight: 400; --lh-tight: 0.9; --text-display: clamp(4.5rem, 12vw, 13rem);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scrollbar-color: var(--color-muted) var(--color-paper); scroll-padding-top: var(--space-3xl); }
+body { margin: 0; background: var(--color-paper); color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-md); line-height: 1.55; -webkit-font-smoothing: antialiased; caret-color: var(--color-accent); }
+::selection { background: var(--color-accent); color: var(--color-accent-ink); }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.16em; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: var(--display-weight, 700); font-synthesis: none; letter-spacing: var(--tracking-display); line-height: 1.05; overflow-wrap: break-word; min-width: 0; text-wrap: balance; }
+h1 { max-width: 20ch; font-size: var(--text-display); } h2 { max-width: 30ch; font-size: var(--text-section); } h3 { max-width: 40ch; font-size: var(--text-title); line-height: 1.2; }
+.lead { font-size: var(--text-lead); line-height: 1.45; max-width: 52ch; }
+p { margin: 0; text-wrap: pretty; }
+p:not([class]) { max-width: 65ch; }
+img, video { max-width: 100%; height: auto; display: block; }
+svg { display: block; }
+[hidden] { display: none !important; }
+button, input, select, textarea { font: inherit; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); box-sizing: border-box; }
+.num, .figure, td.num { font-variant-numeric: tabular-nums; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+[data-slot] { position: relative; overflow: hidden; background: linear-gradient(160deg, var(--color-paper-2, var(--color-paper)), var(--color-paper-3, var(--color-paper))); }
+[data-slot] > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+[data-slot]:has(> img) > :not(img):not([data-keep]) { display: none !important; }
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap-s: 80px; --section-gap: 96px; --section-gap-l: 120px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap-s: 56px; --section-gap: 72px; --section-gap-l: 96px; --gap-columns: 16px; } }
+@media (prefers-reduced-motion: reduce) { *:not(.keep-motion), *:not(.keep-motion)::before, *:not(.keep-motion)::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
+/* photographs: duotone paper ink con=24 */
+[data-slot]:has(> img) { isolation: isolate; background: var(--color-ink); outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
+[data-slot] > img { z-index: 0; filter: grayscale(1) contrast(1.24); mix-blend-mode: multiply; }
+[data-slot]:has(> img)::before { content: ""; position: absolute; inset: 0; z-index: 1; background: var(--color-paper); mix-blend-mode: lighten; pointer-events: none; }
+
+:root {
+  --nav-h: 76px;
+  --text-body: 1.0625rem;
+  --text-meta: 0.9375rem;
+  --text-proof: clamp(1.125rem, 0.35vw + 1rem, 1.3125rem);
+  --text-head: clamp(2.75rem, 4.4vw + 0.5rem, 5rem);
+  --text-item: clamp(2.25rem, 2.6vw + 1rem, 3.75rem);
+  --text-poster: clamp(3.5rem, 10vw, 10.5rem);
+  --text-statement: clamp(3rem, 6vw + 0.5rem, 7rem);
+  --text-slab: clamp(1.75rem, 1.6vw + 1rem, 2.75rem);
+  --text-pledge: clamp(1.5rem, 3.75vw - 0.875rem, 2.5rem);
+  --text-list: 1.125rem;
+  --text-mast: min(calc(100cqi / 7), 12.5rem);
+  /* one rhythm, all on the spacing scale: section padding, then rows */
+  --pad-l: var(--space-3xl);
+  --pad-m: var(--space-2xl);
+  --pad-row: var(--space-xl);
+}
+
+body { color: var(--color-ink-2); font-size: var(--text-body); }
+h1, h2, h3 { font-weight: 400; text-transform: uppercase; line-height: 1.02; color: var(--color-ink); }
+.grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); }
+
+/* skip link */
+.skip { position: absolute; left: var(--space-md); top: calc(-1 * var(--space-3xl)); z-index: var(--z-toast); padding: var(--space-xs) var(--space-md); background: var(--color-ink); color: var(--color-paper); font-weight: 600; }
+.skip:focus-visible { top: var(--space-md); }
+
+/* links: ink, the underline turns red on hover */
+.link { color: var(--color-ink); text-decoration: underline; text-decoration-color: currentColor; text-decoration-thickness: 1px; text-underline-offset: 0.2em; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.link:hover { text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; }
+.link:active { color: var(--color-ink-2); }
+.link:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+
+/* controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 var(--space-lg); border: var(--rule-hair) solid transparent; border-radius: 0; background: none; color: var(--color-ink); font: 600 var(--text-body)/1 var(--font-body); white-space: nowrap; text-decoration: none; cursor: pointer; transition: background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
+.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
+.btn--primary:hover { background: var(--color-accent-deep); }
+.btn--secondary { border-color: var(--color-ink-2); color: var(--color-ink); }
+.btn--secondary:hover { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
+.btn:active { transform: translateY(1px); }
+.btn:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.btn:disabled, .btn[aria-disabled="true"] { opacity: 0.55; cursor: not-allowed; transform: none; }
+.actions { display: flex; flex-wrap: wrap; gap: var(--space-sm); }
+
+/* nav */
+.site-nav { border-bottom: var(--rule-bar) solid var(--color-ink); }
+.site-nav .container { display: flex; align-items: center; justify-content: space-between; gap: var(--space-lg); min-height: calc(var(--nav-h) - var(--rule-bar)); }
+.wordmark { font: 400 var(--text-xl)/1 var(--font-display); text-transform: uppercase; letter-spacing: var(--tracking-display); color: var(--color-ink); text-decoration: none; white-space: nowrap; transition: color var(--dur-short) var(--ease-out); }
+.wordmark:hover { color: var(--color-ink-2); }
+.wordmark:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
+.nav-right { display: flex; align-items: center; gap: var(--space-lg); font-size: var(--text-meta); font-weight: 500; }
+.nav-right .link { white-space: nowrap; }
+.lang { display: flex; align-items: center; }
+.lang button { min-width: 44px; min-height: 44px; padding: 0 var(--space-xs); border: 0; background: none; color: var(--color-muted); font-weight: 500; cursor: pointer; text-decoration: none; transition: color var(--dur-short) var(--ease-out); }
+.lang button:hover { color: var(--color-ink); }
+.lang button:active { color: var(--color-ink-2); }
+.lang button[aria-pressed="true"] { color: var(--color-ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.3em; }
+.lang button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: -2px; }
+.lang button:disabled { opacity: 0.55; cursor: not-allowed; }
+.email-short { display: none; }
+
+/* hero: Ledge, the head resting at the base of a tall dark field */
+.hero { min-height: calc(100svh - var(--nav-h)); display: grid; align-content: end; padding-block: var(--space-2xl) var(--space-xl); }
+.hero .container { container-type: inline-size; }
+.hero h1 { max-width: none; font-size: min(calc(100cqi / 5.9), calc((100svh - 340px) / 2.85), 13rem); line-height: var(--lh-tight); }
+.hero h1 > span { display: block; white-space: nowrap; }
+/* Spanish leads looser so the accent on PRODUCCIÓN clears the line above */
+:lang(es) .hero h1 { font-size: min(calc(100cqi / 8.1), calc((100svh - 340px) / 3.4), 13rem); line-height: 1.12; }
+.hero h1 .hot { color: var(--color-accent); }
+.hero-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-lg) var(--space-2xl); margin-top: var(--space-lg); padding: var(--space-lg) var(--space-xl); background: var(--color-accent); color: var(--color-accent-ink); }
+/* the lede is the band's pledge line, in the display face, as the theme's own band sets it */
+.hero .lead { flex: 1 1 24rem; max-width: none; color: var(--color-accent-ink); font: 400 var(--text-pledge)/1.15 var(--font-display); text-transform: uppercase; letter-spacing: var(--tracking-display); text-wrap: pretty; }
+/* the band inverts the control pair, as the theme's own band does */
+.hero-foot .btn--primary { background: var(--color-paper); color: var(--color-ink); }
+.hero-foot .btn--primary:hover { background: var(--color-paper-3); }
+.hero-foot .btn--secondary { border-color: var(--color-accent-ink); color: var(--color-accent-ink); }
+.hero-foot .btn--secondary:hover { background: var(--color-paper); border-color: var(--color-paper); color: var(--color-ink); }
+.hero-foot .btn:focus-visible { outline-color: var(--color-paper); }
+.wipe { animation: wipe var(--dur-long) var(--ease-out) both; animation-duration: 640ms; }
+@keyframes wipe { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0); } }
+@media (prefers-reduced-motion: reduce) { .wipe { animation: none; } }
+
+/* sections: one padding step, a smaller one where a hairline or a paper change already marks the seam */
+.section { padding-block: var(--pad-l); }
+.section--lead-m { padding-top: var(--pad-m); }
+.section--tail-m { padding-bottom: var(--pad-m); }
+.section--well { background: var(--color-paper-2); color: var(--color-ink-2); border-top: var(--rule-hair) solid var(--color-rule); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.head { max-width: 22ch; font-size: var(--text-head); }
+
+/* the record: working principles, each beside its example */
+.record-head { grid-column: 1 / 9; margin-bottom: var(--space-2xl); }
+.record { grid-column: 1 / -1; list-style: none; margin: 0; padding: 0; counter-reset: belief; border-top: var(--rule-bar) solid var(--color-ink); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.record li:first-child { border-top: 0; }
+.record li { counter-increment: belief; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); align-items: start; padding-block: var(--pad-row); border-top: var(--rule-hair) solid var(--color-rule); }
+.record li::before { content: counter(belief); grid-column: 1 / 2; font: 400 var(--text-head)/1 var(--font-display); color: var(--color-ink-2); font-variant-numeric: tabular-nums; }
+.record h3 { grid-column: 2 / 8; max-width: 22ch; font-size: var(--text-item); line-height: 1.02; }
+.record p { grid-column: 8 / 13; max-width: 46ch; font-size: var(--text-proof); line-height: 1.45; }
+/* numeral, clause and line share one cap line */
+.record li::before, .record h3, .record p { text-box: trim-both cap alphabetic; }
+
+/* the band: the Laravel migration as two states of one platform */
+#highlights .container { container-type: inline-size; }
+.poster { font-size: var(--text-poster); max-width: 14ch; line-height: 1.02; }
+@media (min-width: 64rem) { .poster { max-width: none; font-size: min(calc(100cqi / 10.4), 10.5rem); } }
+.shift { margin: var(--space-2xl) 0 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); align-items: center; }
+.state { display: grid; gap: var(--space-2xs); }
+.state--before { grid-column: 1 / 6; }
+.state--after { grid-column: 8 / 13; }
+.state-when { margin-bottom: var(--space-xs); font-size: var(--text-meta); font-weight: 500; color: var(--color-muted); }
+.slab { padding: var(--space-lg); font: 400 var(--text-slab)/1.05 var(--font-display); text-transform: uppercase; letter-spacing: var(--tracking-display); }
+.slab--app { background: var(--color-paper-3); color: var(--color-ink); }
+.slab--old { background: var(--color-paper); color: var(--color-muted); }
+.slab--new { background: var(--color-accent); color: var(--color-accent-ink); }
+.shift-arrow { grid-column: 6 / 8; position: relative; height: 2px; margin-top: var(--space-xl); background: var(--color-ink-2); }
+.shift-arrow::after { content: ""; position: absolute; right: 1px; top: 50%; width: var(--space-md); height: var(--space-md); border-top: 2px solid var(--color-ink-2); border-right: 2px solid var(--color-ink-2); transform: translateY(-50%) rotate(45deg); }
+.case-body { margin-top: var(--space-2xl); max-width: 58ch; font-size: var(--text-proof); line-height: 1.5; }
+
+/* work: employer and dates, then titles, then the line and its notes */
+.work-head { margin-bottom: var(--space-2xl); }
+.roles { list-style: none; margin: 0; padding: 0; border-top: var(--rule-hair) solid var(--color-rule); }
+.role { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); row-gap: var(--space-md); align-items: start; padding-block: var(--pad-m); border-bottom: var(--rule-hair) solid var(--color-rule); }
+.role-head { grid-column: 1 / 5; display: grid; gap: var(--space-md); }
+.role h3 { max-width: none; font-size: var(--text-item); line-height: 1; }
+.role-span { display: grid; gap: var(--space-3xs); font-size: var(--text-meta); color: var(--color-muted); }
+.role-span .time { font-size: var(--text-body); font-weight: 600; color: var(--color-ink); font-variant-numeric: tabular-nums; }
+.role-titles { grid-column: 5 / 8; list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-md); }
+.role-titles li { display: grid; gap: var(--space-3xs); }
+.t-name { font-size: var(--text-lg); font-weight: 600; line-height: 1.3; color: var(--color-ink); }
+.t-time { font-size: var(--text-meta); color: var(--color-muted); font-variant-numeric: tabular-nums; }
+.role-body { grid-column: 8 / 13; display: grid; gap: var(--space-xs); align-content: start; }
+.role-what { max-width: 52ch; }
+/* employer, first title and line share one cap line */
+.role h3, .role-titles li:first-child .t-name, .role-what { text-box: trim-both cap alphabetic; }
+.more summary { display: inline-flex; align-items: center; min-height: 44px; color: var(--color-ink); font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; cursor: pointer; transition: text-decoration-color var(--dur-short) var(--ease-out); }
+.more summary:hover { text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; }
+.more summary:active { color: var(--color-ink-2); }
+.more summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 3px; }
+.more[open] summary { text-decoration-color: var(--color-accent); }
+.more:not([open]) > :not(summary) { display: none; }
+.more ul { margin: var(--space-xs) 0 0; padding-left: var(--space-md); display: grid; gap: var(--space-xs); }
+.more p { margin-top: var(--space-sm); max-width: 60ch; }
+.more .tools { display: grid; gap: var(--space-3xs); margin-top: var(--space-md); }
+.tools-lbl { font-size: var(--text-meta); font-weight: 500; color: var(--color-muted); }
+
+/* about: the statement and its paragraphs, one size */
+.about .statement { grid-column: 1 / 8; font-size: var(--text-statement); max-width: 13ch; }
+.about-prose { grid-column: 8 / 13; align-self: start; display: grid; gap: var(--space-lg); }
+.about-prose > p { max-width: 46ch; font-size: var(--text-proof); line-height: 1.5; }
+.about .statement, .about-prose > p:first-child { text-box: trim-both cap alphabetic; }
+
+/* stack */
+.stack-head { margin-bottom: var(--space-2xl); }
+.stack { border-bottom: var(--rule-hair) solid var(--color-rule); }
+.stack-group { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap-columns); align-items: start; padding-block: var(--pad-m); border-top: var(--rule-hair) solid var(--color-rule); }
+.stack-group h3 { grid-column: 1 / 5; font-size: var(--text-item); }
+.stack-group ul { grid-column: 5 / 13; max-width: 62ch; list-style: none; margin: 0; padding: 0; font-size: var(--text-proof); line-height: 1.45; color: var(--color-ink-2); }
+.stack-group li { display: inline; }
+.stack-group li:not(:last-child)::after { content: "; "; }
+/* head and its line share one cap line */
+.stack-group h3, .stack-group ul { text-box: trim-both cap alphabetic; }
+
+/* close */
+.close-main { grid-column: 1 / 8; display: grid; gap: var(--space-lg); align-content: start; }
+.close-main .lead { max-width: 44ch; }
+.facts { grid-column: 8 / 13; margin: 0; display: grid; gap: var(--space-md); align-content: start; }
+.facts div { display: grid; gap: var(--space-3xs); padding-top: var(--space-md); border-top: var(--rule-hair) solid var(--color-rule); }
+.facts div:first-child { padding-top: 0; border-top: 0; }
+.facts dt { font-size: var(--text-meta); font-weight: 500; color: var(--color-muted); }
+.facts dd { margin: 0; color: var(--color-ink); font-weight: 600; }
+
+/* footer: mast */
+.site-footer .container { container-type: inline-size; }
+.site-footer { padding-block: var(--pad-l) var(--space-xl); border-top: var(--rule-hair) solid var(--color-rule); }
+.mast { font: 400 var(--text-mast)/1.02 var(--font-display); text-transform: uppercase; letter-spacing: var(--tracking-display); color: var(--color-ink); white-space: nowrap; }
+.foot-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: var(--space-md) var(--space-2xl); margin-top: var(--space-xl); padding-top: var(--space-lg); border-top: var(--rule-hair) solid var(--color-rule); font-size: var(--text-meta); }
+.foot-links { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-xs) var(--space-lg); }
+.foot-row p { color: var(--color-muted); }
+
+/* Spanish capitals carry accents (Ó, É, Ñ); every Anton head leads a step looser so they clear the line above */
+html:lang(es) h2, html:lang(es) h3 { line-height: 1.1; }
+
+@media (max-width: 60rem) {
+  :root { --nav-h: 68px; }
+  .nav-more { display: none; }
+  .record-head, .about .statement, .about-prose, .close-main, .facts { grid-column: 1 / -1; }
+  .record li { grid-template-columns: auto minmax(0, 1fr); column-gap: var(--space-lg); row-gap: var(--space-md); }
+  .record li::before { grid-column: 1 / 2; }
+  .record h3 { grid-column: 2 / 3; }
+  .record p { grid-column: 1 / -1; max-width: 60ch; }
+  .role-head, .role-titles, .role-body { grid-column: 1 / -1; }
+  .role { row-gap: var(--space-lg); }
+  .role-head { grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: var(--space-sm) var(--space-lg); }
+  .role-span { text-align: right; }
+  .about-prose { margin-top: var(--space-xl); }
+  .facts { margin-top: var(--space-2xl); }
+  .stack-group h3, .stack-group ul { grid-column: 1 / -1; }
+  .stack-group { row-gap: var(--space-md); }
+  .stack-group ul { max-width: 60ch; }
+  .state--before, .state--after, .shift-arrow { grid-column: 1 / -1; }
+  .shift-arrow { justify-self: start; width: 2px; height: var(--space-xl); margin: var(--space-md) 0 var(--space-md) var(--space-xl); }
+  .shift-arrow::after { right: auto; top: auto; bottom: 0; left: 50%; transform: translateX(-50%) rotate(135deg); }
+}
+@media (max-width: 40rem) {
+  :root { --pad-l: var(--space-2xl); --pad-m: var(--space-xl); --pad-row: var(--space-lg); }
+  .site-nav .container { gap: var(--space-sm); }
+  .wordmark { font-size: var(--text-lg); }
+  .nav-right { gap: var(--space-xs); }
+  .nav-work { display: none; }
+  .email-long { display: none; }
+  .email-short { display: inline; }
+  .hero { min-height: auto; padding-block: var(--space-3xl) var(--space-xl); }
+  .hero-foot { gap: var(--space-md); padding: var(--space-lg) var(--space-md) var(--space-sm); }
+  .hero-foot .actions { flex-direction: column; align-items: stretch; width: 100%; gap: var(--space-2xs); }
+  /* one action carries the band; the second steps down to a link */
+  .hero-foot .btn--secondary { border-color: transparent; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+  .hero-foot .btn--secondary:hover { background: none; border-color: transparent; color: var(--color-accent-ink); text-decoration-thickness: 2px; }
+  .record li::before { font-size: var(--text-item); }
+  .record h3 { font-size: var(--text-title); line-height: 1.05; }
+  .role { row-gap: var(--space-md); }
+  .role-head { grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--space-xs); }
+  .about .statement { max-width: none; }
+  .stack-group { padding-block: var(--space-lg); row-gap: var(--space-md); }
+  .role-span { text-align: left; }
+  .close .actions .btn--primary { flex: 1 1 100%; }
+  .close .actions .btn--secondary { flex: 1 1 0; }
+}
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
-  <header class="site-header">
-    <div class="container nav-container">
-      <a class="logo" href="#top">Emanuel Aguirre</a>
-      <nav class="primary-nav" aria-label="Primary">
-        <a href="#about" data-i18n="nav.about">About</a>
-        <a href="#work" data-i18n="nav.work">Work</a>
-        <a href="#highlights" data-i18n="nav.highlights">Highlights</a>
-        <a href="#stack" data-i18n="nav.stack">Stack</a>
-      </nav>
-      <div class="nav-actions">
-        <div class="lang-toggle" role="group" aria-label="Language">
-          <button type="button" data-lang="en" class="is-active" aria-current="true">EN</button>
-          <span class="sep" aria-hidden="true">/</span>
-          <button type="button" data-lang="es">ES</button>
+  <header class="site-nav">
+    <div class="container">
+      <a class="wordmark" href="#top" aria-label="Emanuel Aguirre, home" data-i18n-aria="nav.home">Emanuel Aguirre</a>
+      <div class="nav-right">
+        <a class="link nav-work" href="#work" data-i18n="nav.work">Work</a>
+        <a class="link nav-more" href="#about" data-i18n="nav.about">About</a>
+        <a class="link nav-more" href="#stack" data-i18n="nav.stack">Stack</a>
+        <div class="lang" role="group" aria-label="Language" data-i18n-aria="nav.language">
+          <button type="button" data-lang="en" aria-pressed="true" aria-label="English" data-i18n-aria="nav.english">EN</button>
+          <button type="button" data-lang="es" aria-pressed="false" aria-label="Spanish" data-i18n-aria="nav.spanish">ES</button>
         </div>
-        <button class="theme-toggle" aria-label="Toggle color theme" type="button">
-          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="4"></circle>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
-          </svg>
-          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </button>
-        <a class="btn btn-sm btn-primary" href="#contact">
-          <span data-i18n="nav.contact_cta">Get in touch</span>
-          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-          </svg>
-        </a>
+        <a class="link" href="mailto:aguirre@emanuel.com.ar" rel="noopener"><span class="email-long">aguirre@emanuel.com.ar</span><span class="email-short" data-i18n="footer.email">Email</span></a>
       </div>
     </div>
   </header>
@@ -1189,329 +340,273 @@
   <main id="main">
     <section class="hero" id="top">
       <div class="container">
-        <h1 class="hero-headline" data-animate data-i18n="hero.headline" data-i18n-html>
-          Reliable software, <em>built</em> to stay calm in production.
-        </h1>
-        <p class="hero-lead" data-animate data-i18n="hero.lead">
-          Hi, I'm Emanuel Aguirre, a PHP and Laravel developer based in Spain. For over a decade I've helped education companies ship dependable platforms, scale them as user demand grows, and keep them calm through every release.
-        </p>
-        <div class="hero-actions" data-animate>
-          <a class="btn btn-primary" href="#contact">
-            <span data-i18n="hero.cta_primary">Start a conversation</span>
-            <svg class="btn-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-          </a>
-          <a class="btn btn-ghost" href="#work" data-i18n="hero.cta_secondary">Browse work</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="strip" data-animate>
-      <div class="container">
-        <ul class="strip-list">
-          <li class="strip-item">
-            <div class="strip-num">14<span>+</span></div>
-            <div class="strip-label" data-i18n="strip.label1">years building production software</div>
-          </li>
-          <li class="strip-item">
-            <div class="strip-num">72<span>%</span></div>
-            <div class="strip-label" data-i18n="strip.label2">faster page loads at Open English</div>
-          </li>
-          <li class="strip-item">
-            <div class="strip-num">5</div>
-            <div class="strip-label" data-i18n="strip.label3">developers led across time zones</div>
-          </li>
-          <li class="strip-item">
-            <div class="strip-num">3</div>
-            <div class="strip-label" data-i18n="strip.label4">education platforms supported in production</div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section section-about" id="about">
-      <div class="container">
-        <header class="section-head" data-animate>
-          <h2 class="section-title" data-i18n="about.title" data-i18n-html>A developer who treats <em>production</em> like the most important feature.</h2>
-        </header>
-        <div class="about-grid">
-          <div class="prose" data-animate>
-            <p data-i18n="about.p1">Most of my career has lived inside education platforms: places where uptime is non-negotiable, students rely on a working live class, and a slow page is a missed lesson.</p>
-            <p data-i18n="about.p2">I work end-to-end on the platforms I join: Laravel backends, third-party integrations, database design, code review, release pipelines, and the occasional production incident. I'm usually the technical voice in the room when business is weighing a new effort, translating intent into concrete solution paths and naming the trade-offs before scope locks in.</p>
-            <p data-i18n="about.p3">I've led small distributed teams through agile workflows, mentored juniors, and walked teammates through the blockers and ambiguous calls that always live around the edges of a feature, partnering across product, QA, DevOps, research, and marketing to turn fuzzy requirements into safe, observable releases.</p>
+        <h1 class="wipe" data-i18n="hero.headline" data-i18n-html><span>Software that</span><span>stays <span class="hot">calm</span></span><span>in production.</span></h1>
+        <div class="hero-foot">
+          <p class="lead" data-i18n="hero.lead">I’m Emanuel Aguirre. Over a&nbsp;decade of PHP, now from Spain.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="mailto:aguirre@emanuel.com.ar" rel="noopener" data-i18n="hero.cta_primary">Start a conversation</a>
+            <a class="btn btn--secondary" href="#work" data-i18n="hero.cta_secondary">Browse work</a>
           </div>
-          <aside class="about-card" data-animate>
-            <ul class="facts">
-              <li>
-                <span class="fact-label" data-i18n="about.fact_currently_lbl">Currently</span>
-                <span class="fact-val" data-i18n="about.fact_currently_val">PHP Developer at EnzRossi</span>
-              </li>
-              <li>
-                <span class="fact-label" data-i18n="about.fact_based_lbl">Based in</span>
-                <span class="fact-val" data-i18n="about.fact_based_val">Spain · UTC+1</span>
-              </li>
-              <li>
-                <span class="fact-label" data-i18n="about.fact_hours_lbl">Working hours</span>
-                <span class="fact-val" data-i18n="about.fact_hours_val">EU &amp; US Eastern · async-first</span>
-              </li>
-              <li>
-                <span class="fact-label" data-i18n="about.fact_lang_lbl">Languages</span>
-                <span class="fact-val" data-i18n="about.fact_lang_val">English · Spanish (native)</span>
-              </li>
-              <li>
-                <span class="fact-label" data-i18n="about.fact_avail_lbl">Available for</span>
-                <span class="fact-val" data-i18n="about.fact_avail_val">Contract &amp; full-time roles</span>
-              </li>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="principles" aria-labelledby="principles-title">
+      <div class="container grid">
+        <h2 class="head record-head" id="principles-title" data-i18n="style.title">Principles I can point to.</h2>
+        <ol class="record">
+          <li>
+            <h3 data-i18n="stack.style.i1">Production-first thinking</h3>
+            <p data-i18n="style.d1">At Open English I improved home-dashboard performance through Blackfire profiling, query optimization and caching.</p>
+          </li>
+          <li>
+            <h3 data-i18n="stack.style.i4">Calm releases &amp; safe rollbacks</h3>
+            <p data-i18n="style.d2">At EnzRossi I supported release preparation and investigated application issues.</p>
+          </li>
+          <li>
+            <h3 data-i18n="style.h3">Trade-offs stated plainly</h3>
+            <p data-i18n="style.d3">I translate business requirements into technical options and trade-offs, working across product, QA and DevOps.</p>
+          </li>
+          <li>
+            <h3 data-i18n="stack.style.i2">Clear written communication</h3>
+            <p data-i18n="style.d4">At Open English I mentored junior developers and improved team workflows through GitHub code reviews and best practices.</p>
+          </li>
+          <li>
+            <h3 data-i18n="stack.style.i3">Async-friendly collaboration</h3>
+            <p data-i18n="style.d5">Remote since 2018, working every day with US-based teams.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <h2 class="head work-head" id="work-title" data-i18n="work.title">Over a decade, three platforms.</h2>
+        <ol class="roles">
+          <li class="role">
+            <div class="role-head">
+              <h3>EnzRossi</h3>
+              <p class="role-span">
+                <span class="time" data-i18n="role.enz.time">Feb 2025 – Oct 2026</span>
+                <span data-i18n="role.enz.where">Remote, Spain</span>
+              </p>
+            </div>
+            <ul class="role-titles">
+              <li><span class="t-name" data-i18n="role.enz.title">PHP Developer, education platform, US client</span></li>
             </ul>
-          </aside>
+            <div class="role-body">
+              <p class="role-what" data-i18n="role.enz.body">Authentication, access control with SSO, third-party integrations and release support.</p>
+              <details class="more">
+                <summary data-i18n="more.role">Full notes</summary>
+                <ul>
+                  <li data-i18n="role.enz.b1">Developed and maintained PHP web applications in the education sector.</li>
+                  <li data-i18n="role.enz.b2">Worked on authentication, access control (including SSO) and third-party integrations.</li>
+                  <li data-i18n="role.enz.b3">Supported release preparation and investigated application issues.</li>
+                </ul>
+                <p class="tools"><span class="tools-lbl" data-i18n="more.tools">Tools</span> <span data-i18n="role.enz.tools">PHP, SSO, CI/CD</span></p>
+              </details>
+            </div>
+          </li>
+          <li class="role">
+            <div class="role-head">
+              <h3>Open English</h3>
+              <p class="role-span">
+                <span class="time" data-i18n="role.oe.time">Jul 2018 to Jul 2024</span>
+                <span data-i18n="role.oe.where">Remote, Argentina</span>
+              </p>
+            </div>
+            <ul class="role-titles">
+              <li><span class="t-name" data-i18n="role.oe.title">Lead Senior PHP Web Developer</span><span class="t-time" data-i18n="role.oe.title_time">Apr 2023 to Jul 2024</span></li>
+              <li><span class="t-name" data-i18n="role.oe.title2">Full Stack Software Developer</span><span class="t-time" data-i18n="role.oe.title2_time">Jul 2018 to Apr 2023</span></li>
+            </ul>
+            <div class="role-body">
+              <p class="role-what" data-i18n="role.oe.body">Developed Open English Junior, which teaches English to children in Latin America.</p>
+              <details class="more">
+                <summary data-i18n="more.role">Full notes</summary>
+                <ul>
+                  <li data-i18n="role.oe.b1">Developed the Open English Junior learning platform, which teaches English to children in Latin America.</li>
+                  <li data-i18n="role.oe.b2">Owned the migration of the platform from an in-house PHP framework to Laravel to improve scalability for growing user demand.</li>
+                  <li data-i18n="role.oe.b3">Integrated Salesforce, Zoom and Mandrill APIs, as well as internal REST services.</li>
+                  <li data-i18n="role.oe.b4">Improved home-dashboard performance through Blackfire profiling, query optimization and caching.</li>
+                  <li data-i18n="role.oe.b5">Mentored junior developers and improved team workflows through GitHub code reviews and best practices.</li>
+                </ul>
+                <p class="tools"><span class="tools-lbl" data-i18n="more.tools">Tools</span> <span data-i18n="role.oe.tools">Laravel, MySQL, Redis, Blackfire, Zoom OAuth, Docker</span></p>
+              </details>
+            </div>
+          </li>
+          <li class="role">
+            <div class="role-head">
+              <h3>StartSpanish</h3>
+              <p class="role-span">
+                <span class="time" data-i18n="role.ss.time">Sep 2014 to Jul 2018</span>
+                <span data-i18n="role.ss.where">Córdoba, Argentina</span>
+              </p>
+            </div>
+            <ul class="role-titles">
+              <li><span class="t-name" data-i18n="role.ss.title">Full-Stack Web Developer</span></li>
+            </ul>
+            <div class="role-body">
+              <p class="role-what" data-i18n="role.ss.body">Owned the full web stack of an online Spanish-language school.</p>
+              <details class="more">
+                <summary data-i18n="more.role">Full notes</summary>
+                <ul>
+                  <li data-i18n="role.ss.b1">Owned the full web stack at an online Spanish-language education company: production systems, feature delivery, and product decisions.</li>
+                  <li data-i18n="role.ss.b2">Rebuilt the marketing site mobile-first and refactored backend services for maintainability and delivery speed.</li>
+                  <li data-i18n="role.ss.b4">Added Stripe alongside PayPal, integrated Mandrill transactional email, and migrated live classes from Adobe Connect to Zoom.</li>
+                </ul>
+                <p class="tools"><span class="tools-lbl" data-i18n="more.tools">Tools</span> <span data-i18n="role.ss.tools">PHP, JavaScript, Stripe, Mandrill, Bootstrap, Zoom</span></p>
+              </details>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section section--well" id="highlights" aria-labelledby="case-title">
+      <div class="container">
+        <h2 class="poster" id="case-title" data-i18n="case.title">In-house PHP to Laravel.</h2>
+        <figure class="shift diagram" role="img" aria-label="Diagram: the Open English Junior platform moved from an in-house PHP framework to Laravel" data-i18n-aria="case.chart">
+          <div class="state state--before">
+            <p class="state-when" data-i18n="case.before">Before</p>
+            <p class="slab slab--app">Open English Junior</p>
+            <p class="slab slab--old" data-i18n="case.old">In-house PHP framework</p>
+          </div>
+          <span class="shift-arrow" aria-hidden="true"></span>
+          <div class="state state--after">
+            <p class="state-when" data-i18n="case.after">After</p>
+            <p class="slab slab--app">Open English Junior</p>
+            <p class="slab slab--new">Laravel</p>
+          </div>
+        </figure>
+        <p class="case-body" data-i18n="case.body">I owned this migration at Open English, to improve scalability for growing user demand.</p>
+      </div>
+    </section>
+
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container grid">
+        <h2 class="statement" id="about-title" data-i18n="about.title">A slow page is a missed lesson.</h2>
+        <div class="about-prose">
+          <p data-i18n="about.p1">Most of my career has lived inside education platforms, three supported in production, where students rely on a working live class.</p>
+          <p data-i18n="about.p2">I work end to end, from Laravel backends to release pipelines, and I am usually the voice naming the trade-offs before scope locks in.</p>
+          <details class="more">
+            <summary data-i18n="more.about">The long version</summary>
+            <p data-i18n="long.lead">Hi, I’m Emanuel Aguirre, a PHP and Laravel developer based in Spain. For over a decade I’ve helped education companies ship dependable platforms, scale them as user demand grows, and keep them calm through every release.</p>
+            <p data-i18n="long.p1">Most of my career has lived inside education platforms: places where uptime is non-negotiable, students rely on a working live class, and a slow page is a missed lesson.</p>
+            <p data-i18n="long.p2">I work end-to-end on the platforms I join: Laravel backends, third-party integrations, database design, code review, release pipelines, and the occasional production incident. I’m usually the technical voice in the room when business is weighing a new effort, translating intent into concrete solution paths and naming the trade-offs before scope locks in.</p>
+            <p data-i18n="long.p3">I’ve mentored junior developers and walked teammates through the blockers and ambiguous calls that always live around the edges of a feature, partnering across product, QA, DevOps, research, and marketing to turn fuzzy requirements into safe, observable releases.</p>
+          </details>
         </div>
       </div>
     </section>
 
-    <section class="section section-work" id="work">
+    <section class="section section--lead-m" id="stack" aria-labelledby="stack-title">
       <div class="container">
-        <header class="section-head" data-animate>
-          <h2 class="section-title" data-i18n="work.title" data-i18n-html>A decade of <em>shipping</em>.</h2>
-        </header>
-        <div class="timeline">
-          <article class="role" data-animate>
-            <div class="role-side">
-              <div class="role-time" data-i18n="role.enz.time">Feb 2025 – Present</div>
-              <div class="role-where" data-i18n="role.enz.where">Remote · Spain</div>
-              <ul class="role-tags">
-                <li>PHP</li>
-                <li>SSO</li>
-                <li data-i18n="role.enz.tag_access">Access control</li>
-                <li>CI/CD</li>
-              </ul>
-            </div>
-            <div class="role-main">
-              <h3 class="role-company">EnzRossi</h3>
-              <p class="role-title" data-i18n="role.enz.title">PHP Developer (Contract) · Education platform, US client</p>
-              <ul class="role-bullets">
-                <li data-i18n="role.enz.b1">Developed and maintained PHP web applications in the education sector.</li>
-                <li data-i18n="role.enz.b2">Worked on authentication, access control (including SSO) and third-party integrations.</li>
-                <li data-i18n="role.enz.b3">Supported release preparation and investigated application issues.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="role" data-animate>
-            <div class="role-side">
-              <div class="role-time" data-i18n="role.oe.time">Jul 2018 – Jul 2024</div>
-              <div class="role-where" data-i18n="role.oe.where">Remote · LATAM</div>
-              <ul class="role-tags">
-                <li>Laravel</li>
-                <li>MySQL</li>
-                <li>Redis</li>
-                <li>Blackfire</li>
-                <li>Zoom OAuth</li>
-                <li>Docker</li>
-              </ul>
-            </div>
-            <div class="role-main">
-              <h3 class="role-company">Open English</h3>
-              <p class="role-title" data-i18n="role.oe.title">Technical Lead, PHP Web Developer</p>
-              <ul class="role-bullets">
-                <li data-i18n="role.oe.b1">Led OpenEnglish Junior, an English-learning platform for Latin American students with live classes and async content, and migrated it from an in-house PHP framework to Laravel without disrupting live classes.</li>
-                <li data-i18n="role.oe.b2">Managed a distributed team of five developers across time zones: daily coordination, code-review on GitHub, and growth check-ins with each one.</li>
-                <li data-i18n="role.oe.b4">Cut home-dashboard page load by 72% (900 ms → 250 ms) through Blackfire profiling, query optimization, and strategic caching during the migration.</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="role" data-animate>
-            <div class="role-side">
-              <div class="role-time" data-i18n="role.ss.time">Sep 2014 – Jul 2018</div>
-              <div class="role-where" data-i18n="role.ss.where">Cordoba, Argentina</div>
-              <ul class="role-tags">
-                <li>PHP</li>
-                <li>JavaScript</li>
-                <li>Stripe</li>
-                <li>Mandrill</li>
-                <li>Bootstrap</li>
-                <li>Zoom</li>
-              </ul>
-            </div>
-            <div class="role-main">
-              <h3 class="role-company">StartSpanish</h3>
-              <p class="role-title" data-i18n="role.ss.title">Full-Stack Web Developer</p>
-              <ul class="role-bullets">
-                <li data-i18n="role.ss.b1">Owned the full web stack at an online Spanish-language education company: production systems, feature delivery, and product decisions.</li>
-                <li data-i18n="role.ss.b2">Rebuilt the marketing site mobile-first and refactored backend services for maintainability and delivery speed.</li>
-                <li data-i18n="role.ss.b4">Added Stripe as the primary payment option alongside PayPal, integrated Mandrill transactional email, and migrated live classes from Adobe Connect to Zoom.</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-highlights" id="highlights">
-      <div class="container">
-        <header class="section-head" data-animate>
-          <h2 class="section-title" data-i18n="highlights.title" data-i18n-html>A few wins worth <em>telling</em>.</h2>
-        </header>
-        <div class="cards">
-          <article class="card" data-animate>
-            <span class="card-badge" data-i18n="card.perf.badge">Performance</span>
-            <h3 class="card-title" data-i18n="card.perf.title">72% faster, end to end.</h3>
-            <p class="card-stat" data-i18n="card.perf.stat" data-i18n-html>900&thinsp;ms <span class="card-arrow">→</span> 250&thinsp;ms</p>
-            <p class="card-body" data-i18n="card.perf.body">Profiled production hot paths with Blackfire, optimized the slowest queries, and added strategic caching during the Laravel migration, bringing the home dashboard from 900&thinsp;ms down to 250&thinsp;ms without changing the UX.</p>
-            <p class="card-meta">Open English · 2018–2024</p>
-          </article>
-
-          <article class="card" data-animate>
-            <span class="card-badge" data-i18n="card.pay.badge">Payments</span>
-            <h3 class="card-title" data-i18n="card.pay.title">Stripe in, PayPal kept.</h3>
-            <p class="card-stat" data-i18n="card.pay.stat" data-i18n-html>PayPal <span class="card-arrow">→</span> Stripe + PayPal</p>
-            <p class="card-body" data-i18n="card.pay.body">Added Stripe as the primary payment option alongside PayPal at an online Spanish-language school, together with transactional email through Mandrill and the move of live classes from Adobe Connect to Zoom.</p>
-            <p class="card-meta">StartSpanish · 2014–2018</p>
-          </article>
-
-          <article class="card" data-animate>
-            <span class="card-badge" data-i18n="card.mig.badge">Migration</span>
-            <h3 class="card-title" data-i18n="card.mig.title">Off legacy. Onto Laravel.</h3>
-            <p class="card-stat" data-i18n="card.mig.stat" data-i18n-html>In-house framework <span class="card-arrow">→</span> Laravel</p>
-            <p class="card-body" data-i18n="card.mig.body">Led the migration of OpenEnglish Junior off a hand-rolled PHP framework onto Laravel without disrupting live classes, using the move to rebuild scalability, maintainability, and developer velocity.</p>
-            <p class="card-meta">Open English · 2018–2024</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-stack" id="stack">
-      <div class="container">
-        <header class="section-head" data-animate>
-          <h2 class="section-title" data-i18n="stack.title">The stack I reach for.</h2>
-        </header>
-        <div class="stack-grid" data-animate>
+        <h2 class="head stack-head" id="stack-title" data-i18n="stack.title">Mostly PHP. Never only PHP.</h2>
+        <div class="stack">
           <div class="stack-group">
-            <div class="stack-head">
-              <span class="stack-num">A.</span>
-              <h3 data-i18n="stack.backend">Backend</h3>
-            </div>
-            <ul class="stack-items">
+            <h3 data-i18n="stack.backend">Backend</h3>
+            <ul>
               <li>PHP / Laravel</li>
-              <li>MySQL · MariaDB · Redis</li>
-              <li data-i18n="stack.backend.i3">REST APIs · queues · Horizon</li>
+              <li>MySQL, MariaDB, Redis</li>
+              <li data-i18n="stack.backend.i3">REST APIs, queues, Horizon</li>
               <li data-i18n="stack.backend.i4">Database &amp; query optimization</li>
               <li data-i18n="stack.backend.i5">Caching strategies</li>
             </ul>
           </div>
           <div class="stack-group">
-            <div class="stack-head">
-              <span class="stack-num">B.</span>
-              <h3 data-i18n="stack.frontend">Frontend</h3>
-            </div>
-            <ul class="stack-items">
+            <h3 data-i18n="stack.frontend">Frontend</h3>
+            <ul>
               <li>JavaScript</li>
-              <li>Blade · HTML</li>
-              <li>CSS · SASS/SCSS</li>
+              <li>Blade, HTML</li>
+              <li>CSS, SASS/SCSS</li>
               <li>Bootstrap</li>
               <li data-i18n="stack.frontend.i5">Mobile-first implementation</li>
             </ul>
           </div>
           <div class="stack-group">
-            <div class="stack-head">
-              <span class="stack-num">C.</span>
-              <h3 data-i18n="stack.integrations">Integrations</h3>
-            </div>
-            <ul class="stack-items">
+            <h3 data-i18n="stack.integrations">Integrations</h3>
+            <ul>
               <li data-i18n="stack.integrations.i1">Zoom API &amp; OAuth</li>
-              <li data-i18n="stack.integrations.i2">Third-party APIs · SSO</li>
+              <li data-i18n="stack.integrations.i2">Third-party APIs, SSO</li>
               <li data-i18n="stack.integrations.i3">Pendo product analytics</li>
-              <li>Stripe · PayPal · Mandrill</li>
-              <li>AWS S3 · AWS SES · Google Calendar</li>
+              <li>Stripe, PayPal, Mandrill</li>
+              <li>AWS S3, AWS SES, Google Calendar</li>
+              <li>Salesforce API</li>
             </ul>
           </div>
           <div class="stack-group">
-            <div class="stack-head">
-              <span class="stack-num">D.</span>
-              <h3 data-i18n="stack.devops">DevOps &amp; Quality</h3>
-            </div>
-            <ul class="stack-items">
-              <li>Docker · Docker Compose</li>
-              <li>Git · GitHub · Bitbucket</li>
-              <li>Jenkins · CI/CD · SonarQube</li>
-              <li>Blackfire · New Relic · Apache</li>
-              <li data-i18n="stack.devops.i5">PHPUnit · feature tests</li>
+            <h3 data-i18n="stack.devops">DevOps &amp; Quality</h3>
+            <ul>
+              <li>Docker, Docker Compose</li>
+              <li>Git, GitHub, Bitbucket</li>
+              <li>Jenkins, CI/CD, SonarQube</li>
+              <li>Blackfire, New Relic, Apache</li>
+              <li data-i18n="stack.devops.i5">PHPUnit, feature tests</li>
             </ul>
           </div>
           <div class="stack-group">
-            <div class="stack-head">
-              <span class="stack-num">E.</span>
-              <h3 data-i18n="stack.leadership">Leadership</h3>
-            </div>
-            <ul class="stack-items">
+            <h3 data-i18n="stack.leadership">Leadership</h3>
+            <ul>
               <li data-i18n="stack.leadership.i1">Technical leadership</li>
-              <li data-i18n="stack.leadership.i2">Code review · mentoring</li>
-              <li data-i18n="stack.leadership.i3">Release planning · QA handoff</li>
+              <li data-i18n="stack.leadership.i2">Code review, mentoring</li>
+              <li data-i18n="stack.leadership.i3">Release planning, QA handoff</li>
               <li data-i18n="stack.leadership.i4">Production support</li>
               <li data-i18n="stack.leadership.i5">Cross-functional delivery</li>
-            </ul>
-          </div>
-          <div class="stack-group">
-            <div class="stack-head">
-              <span class="stack-num">F.</span>
-              <h3 data-i18n="stack.style">Working Style</h3>
-            </div>
-            <ul class="stack-items">
-              <li data-i18n="stack.style.i1">Production-first thinking</li>
-              <li data-i18n="stack.style.i2">Clear written communication</li>
-              <li data-i18n="stack.style.i3">Async-friendly collaboration</li>
-              <li data-i18n="stack.style.i4">Calm releases &amp; safe rollbacks</li>
-              <li data-i18n="stack.style.i5">Documentation as a feature</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-contact" id="contact">
-      <div class="container">
-        <div class="contact-card" data-animate>
-          <h2 class="contact-headline" data-i18n="contact.headline" data-i18n-html>Have a Laravel platform that needs a <em>steady hand</em>?</h2>
-          <p class="contact-lead" data-i18n="contact.lead">Open to contract and full-time backend roles, especially around education, performance, and platform reliability. Best reached by email.</p>
-          <div class="contact-actions">
-            <a class="btn btn-primary btn-lg" href="mailto:aguirre@emanuel.com.ar">
-              <span>aguirre@emanuel.com.ar</span>
-              <svg class="btn-arrow" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M3.5 8h9m0 0L8 3.5M12.5 8L8 12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-              </svg>
-            </a>
-            <a class="btn btn-ghost btn-lg" href="https://www.linkedin.com/in/ema-dev" rel="noopener">LinkedIn ↗</a>
-            <a class="btn btn-ghost btn-lg" href="https://github.com/delmicio" rel="noopener">GitHub ↗</a>
+    <section class="section close" id="contact" aria-labelledby="contact-title">
+      <div class="container grid">
+        <div class="close-main">
+          <h2 class="head" id="contact-title" data-i18n="contact.headline">Tell me what needs to stay calm.</h2>
+          <p class="lead" data-i18n="contact.lead">Open to backend roles around education, performance and platform reliability. Best reached by email.</p>
+          <div class="actions">
+            <a class="btn btn--primary" href="mailto:aguirre@emanuel.com.ar" rel="noopener">aguirre@emanuel.com.ar</a>
+            <a class="btn btn--secondary" href="https://www.linkedin.com/in/ema-dev" rel="noopener">LinkedIn</a>
+            <a class="btn btn--secondary" href="https://github.com/delmicio" rel="noopener">GitHub</a>
           </div>
-          <ul class="contact-meta">
-            <li>
-              <span class="meta-label" data-i18n="contact.based_lbl">Based in</span>
-              <span class="meta-val" data-i18n="contact.based_val">Spain</span>
-            </li>
-            <li>
-              <span class="meta-label" data-i18n="contact.hours_lbl">Hours</span>
-              <span class="meta-val" data-i18n="contact.hours_val">EU &amp; US East</span>
-            </li>
-            <li>
-              <span class="meta-label" data-i18n="contact.lang_lbl">Languages</span>
-              <span class="meta-val" data-i18n="contact.lang_val">EN · ES (native)</span>
-            </li>
-          </ul>
         </div>
+        <dl class="facts">
+          <div>
+            <dt data-i18n="about.fact_currently_lbl">Specialty</dt>
+            <dd data-i18n="about.fact_currently_val">PHP &amp; Laravel</dd>
+          </div>
+          <div>
+            <dt data-i18n="about.fact_based_lbl">Based in</dt>
+            <dd data-i18n="about.fact_based_val">Spain, UTC+1</dd>
+          </div>
+          <div>
+            <dt data-i18n="about.fact_hours_lbl">Working hours</dt>
+            <dd data-i18n="about.fact_hours_val">EU and US Eastern, async-first</dd>
+          </div>
+          <div>
+            <dt data-i18n="about.fact_lang_lbl">Languages</dt>
+            <dd data-i18n="about.fact_lang_val">Spanish (native); English (advanced, daily work with US-based teams)</dd>
+          </div>
+          <div>
+            <dt data-i18n="about.fact_avail_lbl">Available for</dt>
+            <dd data-i18n="about.fact_avail_val">Contract &amp; full-time roles</dd>
+          </div>
+        </dl>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-container">
-      <p class="footer-copy" data-i18n="footer.copy">© 2026 Jesus Emanuel Aguirre · Crafted in Spain</p>
-      <ul class="footer-links">
-        <li><a href="https://emanuel.com.ar" rel="noopener">emanuel.com.ar</a></li>
-        <li><a href="https://github.com/delmicio" rel="noopener">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/ema-dev" rel="noopener">LinkedIn</a></li>
-        <li><a href="mailto:aguirre@emanuel.com.ar" data-i18n="footer.email">Email</a></li>
-      </ul>
+    <div class="container">
+      <p class="mast">Emanuel Aguirre</p>
+      <div class="foot-row">
+        <ul class="foot-links">
+          <li><a class="link" href="https://emanuel.com.ar" rel="noopener">emanuel.com.ar</a></li>
+          <li><a class="link" href="https://github.com/delmicio" rel="noopener">GitHub</a></li>
+          <li><a class="link" href="https://www.linkedin.com/in/ema-dev" rel="noopener">LinkedIn</a></li>
+          <li><a class="link" href="mailto:aguirre@emanuel.com.ar" rel="noopener" data-i18n="footer.email">Email</a></li>
+        </ul>
+        <p data-i18n="footer.copy">© 2026 Jesus Emanuel Aguirre. Crafted in Spain.</p>
+      </div>
     </div>
   </footer>
 
@@ -1522,200 +617,214 @@
       var translations = {
         en: {
           'meta.title': 'Emanuel Aguirre, PHP & Laravel Developer',
-          'meta.description': 'Backend developer building reliable Laravel platforms for education at scale. Based in Spain.',
-          'nav.about': 'About',
+          'meta.description': 'PHP and Laravel backend developer in Spain, keeping production platforms reliable for over a decade.',
+          'skip': 'Skip to content',
+          'nav.home': 'Emanuel Aguirre, home',
+          'nav.language': 'Language',
+          'nav.english': 'English',
+          'nav.spanish': 'Spanish',
           'nav.work': 'Work',
-          'nav.highlights': 'Highlights',
+          'nav.about': 'About',
           'nav.stack': 'Stack',
-          'nav.contact_cta': 'Get in touch',
-          'hero.headline': 'Reliable software, <em>built</em> to stay calm in production.',
-          'hero.lead': 'Hi, I’m Emanuel Aguirre, a PHP and Laravel developer based in Spain. For over a decade I’ve helped education companies ship dependable platforms, scale them as user demand grows, and keep them calm through every release.',
+          'hero.headline': '<span>Software that</span><span>stays <span class="hot">calm</span></span><span>in production.</span>',
+          'hero.lead': 'I’m Emanuel Aguirre. Over a decade of PHP, now from Spain.',
           'hero.cta_primary': 'Start a conversation',
           'hero.cta_secondary': 'Browse work',
-          'strip.label1': 'years building production software',
-          'strip.label2': 'faster page loads at Open English',
-          'strip.label3': 'developers led across time zones',
-          'strip.label4': 'education platforms supported in production',
-          'about.title': 'A developer who treats <em>production</em> like the most important feature.',
-          'about.p1': 'Most of my career has lived inside education platforms: places where uptime is non-negotiable, students rely on a working live class, and a slow page is a missed lesson.',
-          'about.p2': 'I work end-to-end on the platforms I join: Laravel backends, third-party integrations, database design, code review, release pipelines, and the occasional production incident. I’m usually the technical voice in the room when business is weighing a new effort, translating intent into concrete solution paths and naming the trade-offs before scope locks in.',
-          'about.p3': 'I’ve led small distributed teams through agile workflows, mentored juniors, and walked teammates through the blockers and ambiguous calls that always live around the edges of a feature, partnering across product, QA, DevOps, research, and marketing to turn fuzzy requirements into safe, observable releases.',
-          'about.fact_currently_lbl': 'Currently',
-          'about.fact_currently_val': 'PHP Developer at EnzRossi',
-          'about.fact_based_lbl': 'Based in',
-          'about.fact_based_val': 'Spain · UTC+1',
-          'about.fact_hours_lbl': 'Working hours',
-          'about.fact_hours_val': 'EU & US Eastern · async-first',
-          'about.fact_lang_lbl': 'Languages',
-          'about.fact_lang_val': 'English · Spanish (native)',
-          'about.fact_avail_lbl': 'Available for',
-          'about.fact_avail_val': 'Contract & full-time roles',
-          'work.title': 'A decade of <em>shipping</em>.',
-          'role.enz.time': 'Feb 2025 – Present',
-          'role.enz.where': 'Remote · Spain',
-          'role.enz.tag_access': 'Access control',
-          'role.enz.title': 'PHP Developer (Contract) · Education platform, US client',
-          'role.enz.b1': 'Developed and maintained PHP web applications in the education sector.',
-          'role.enz.b2': 'Worked on authentication, access control (including SSO) and third-party integrations.',
-          'role.enz.b3': 'Supported release preparation and investigated application issues.',
-          'role.oe.time': 'Jul 2018 – Jul 2024',
-          'role.oe.where': 'Remote · LATAM',
-          'role.oe.title': 'Technical Lead, PHP Web Developer',
-          'role.oe.b1': 'Led OpenEnglish Junior, an English-learning platform for Latin American students with live classes and async content, and migrated it from an in-house PHP framework to Laravel without disrupting live classes.',
-          'role.oe.b2': 'Managed a distributed team of five developers across time zones: daily coordination, code-review on GitHub, and growth check-ins with each one.',
-          'role.oe.b4': 'Cut home-dashboard page load by 72% (900 ms → 250 ms) through Blackfire profiling, query optimization, and strategic caching during the migration.',
-          'role.ss.time': 'Sep 2014 – Jul 2018',
-          'role.ss.where': 'Cordoba, Argentina',
+          'style.title': 'Principles I can point to.',
+          'stack.style.i1': 'Production-first thinking',
+          'stack.style.i2': 'Clear written communication',
+          'stack.style.i3': 'Async-friendly collaboration',
+          'stack.style.i4': 'Calm releases & safe rollbacks',
+          'style.h3': 'Trade-offs stated plainly',
+          'style.d1': 'At Open English I improved home-dashboard performance through Blackfire profiling, query optimization and caching.',
+          'style.d2': 'At EnzRossi I supported release preparation and investigated application issues.',
+          'style.d3': 'I translate business requirements into technical options and trade-offs, working across product, QA and DevOps.',
+          'style.d4': 'At Open English I mentored junior developers and improved team workflows through GitHub code reviews and best practices.',
+          'style.d5': 'Remote since 2018, working every day with US-based teams.',
+          'case.title': 'In-house PHP to Laravel.',
+          'case.chart': 'Diagram: the Open English Junior platform moved from an in-house PHP framework to Laravel',
+          'case.before': 'Before',
+          'case.after': 'After',
+          'case.old': 'In-house PHP framework',
+          'case.body': 'I owned this migration at Open English, to improve scalability for growing user demand.',
+          'work.title': 'Over a decade, three platforms.',
+          'role.enz.time': 'Feb 2025 – Oct 2026',
+          'role.enz.where': 'Remote, Spain',
+          'role.enz.title': 'PHP Developer, education platform, US client',
+          'role.enz.body': 'Authentication, access control with SSO, third-party integrations and release support.',
+          'role.oe.time': 'Jul 2018 to Jul 2024',
+          'role.oe.where': 'Remote, Argentina',
+          'role.oe.title': 'Lead Senior PHP Web Developer',
+          'role.oe.title_time': 'Apr 2023 to Jul 2024',
+          'role.oe.title2': 'Full Stack Software Developer',
+          'role.oe.title2_time': 'Jul 2018 to Apr 2023',
+          'role.oe.body': 'Developed Open English Junior, which teaches English to children in Latin America.',
+          'role.ss.time': 'Sep 2014 to Jul 2018',
+          'role.ss.where': 'Córdoba, Argentina',
           'role.ss.title': 'Full-Stack Web Developer',
-          'role.ss.b1': 'Owned the full web stack at an online Spanish-language education company: production systems, feature delivery, and product decisions.',
-          'role.ss.b2': 'Rebuilt the marketing site mobile-first and refactored backend services for maintainability and delivery speed.',
-          'role.ss.b4': 'Added Stripe as the primary payment option alongside PayPal, integrated Mandrill transactional email, and migrated live classes from Adobe Connect to Zoom.',
-          'highlights.title': 'A few wins worth <em>telling</em>.',
-          'card.perf.badge': 'Performance',
-          'card.perf.title': '72% faster, end to end.',
-          'card.perf.stat': '900&thinsp;ms <span class="card-arrow">→</span> 250&thinsp;ms',
-          'card.perf.body': 'Profiled production hot paths with Blackfire, optimized the slowest queries, and added strategic caching during the Laravel migration, bringing the home dashboard from 900 ms down to 250 ms without changing the UX.',
-          'card.pay.badge': 'Payments',
-          'card.pay.title': 'Stripe in, PayPal kept.',
-          'card.pay.stat': 'PayPal <span class="card-arrow">→</span> Stripe + PayPal',
-          'card.pay.body': 'Added Stripe as the primary payment option alongside PayPal at an online Spanish-language school, together with transactional email through Mandrill and the move of live classes from Adobe Connect to Zoom.',
-          'card.mig.badge': 'Migration',
-          'card.mig.title': 'Off legacy. Onto Laravel.',
-          'card.mig.stat': 'In-house framework <span class="card-arrow">→</span> Laravel',
-          'card.mig.body': 'Led the migration of OpenEnglish Junior off a hand-rolled PHP framework onto Laravel without disrupting live classes, using the move to rebuild scalability, maintainability, and developer velocity.',
-          'stack.title': 'The stack I reach for.',
+          'role.ss.body': 'Owned the full web stack of an online Spanish-language school.',
+          'about.title': 'A slow page is a missed lesson.',
+          'about.p1': 'Most of my career has lived inside education platforms, three supported in production, where students rely on a working live class.',
+          'about.p2': 'I work end to end, from Laravel backends to release pipelines, and I am usually the voice naming the trade-offs before scope locks in.',
+          'stack.title': 'Mostly PHP. Never only PHP.',
           'stack.backend': 'Backend',
-          'stack.backend.i3': 'REST APIs · queues · Horizon',
+          'stack.backend.i3': 'REST APIs, queues, Horizon',
           'stack.backend.i4': 'Database & query optimization',
           'stack.backend.i5': 'Caching strategies',
           'stack.frontend': 'Frontend',
           'stack.frontend.i5': 'Mobile-first implementation',
           'stack.integrations': 'Integrations',
           'stack.integrations.i1': 'Zoom API & OAuth',
-          'stack.integrations.i2': 'Third-party APIs · SSO',
+          'stack.integrations.i2': 'Third-party APIs, SSO',
           'stack.integrations.i3': 'Pendo product analytics',
           'stack.devops': 'DevOps & Quality',
-          'stack.devops.i5': 'PHPUnit · feature tests',
+          'stack.devops.i5': 'PHPUnit, feature tests',
           'stack.leadership': 'Leadership',
           'stack.leadership.i1': 'Technical leadership',
-          'stack.leadership.i2': 'Code review · mentoring',
-          'stack.leadership.i3': 'Release planning · QA handoff',
+          'stack.leadership.i2': 'Code review, mentoring',
+          'stack.leadership.i3': 'Release planning, QA handoff',
           'stack.leadership.i4': 'Production support',
           'stack.leadership.i5': 'Cross-functional delivery',
-          'stack.style': 'Working Style',
-          'stack.style.i1': 'Production-first thinking',
-          'stack.style.i2': 'Clear written communication',
-          'stack.style.i3': 'Async-friendly collaboration',
-          'stack.style.i4': 'Calm releases & safe rollbacks',
-          'stack.style.i5': 'Documentation as a feature',
-          'contact.headline': 'Have a Laravel platform that needs a <em>steady hand</em>?',
-          'contact.lead': 'Open to contract and full-time backend roles, especially around education, performance, and platform reliability. Best reached by email.',
-          'contact.based_lbl': 'Based in',
-          'contact.based_val': 'Spain',
-          'contact.hours_lbl': 'Hours',
-          'contact.hours_val': 'EU & US East',
-          'contact.lang_lbl': 'Languages',
-          'contact.lang_val': 'EN · ES (native)',
-          'footer.copy': '© 2026 Jesus Emanuel Aguirre · Crafted in Spain',
+          'contact.headline': 'Tell me what needs to stay calm.',
+          'contact.lead': 'Open to backend roles around education, performance and platform reliability. Best reached by email.',
+          'about.fact_currently_lbl': 'Specialty',
+          'about.fact_currently_val': 'PHP & Laravel',
+          'about.fact_based_lbl': 'Based in',
+          'about.fact_based_val': 'Spain, UTC+1',
+          'about.fact_hours_lbl': 'Working hours',
+          'about.fact_hours_val': 'EU and US Eastern, async-first',
+          'about.fact_lang_lbl': 'Languages',
+          'about.fact_lang_val': 'Spanish (native); English (advanced, daily work with US-based teams)',
+          'about.fact_avail_lbl': 'Available for',
+          'about.fact_avail_val': 'Contract & full-time roles',
+          'more.role': 'Full notes',
+          'more.about': 'The long version',
+          'more.tools': 'Tools',
+          'role.enz.tools': 'PHP, SSO, CI/CD',
+          'role.enz.b1': 'Developed and maintained PHP web applications in the education sector.',
+          'role.enz.b2': 'Worked on authentication, access control (including SSO) and third-party integrations.',
+          'role.enz.b3': 'Supported release preparation and investigated application issues.',
+          'role.oe.tools': 'Laravel, MySQL, Redis, Blackfire, Zoom OAuth, Docker',
+          'role.oe.b1': 'Developed the Open English Junior learning platform, which teaches English to children in Latin America.',
+          'role.oe.b2': 'Owned the migration of the platform from an in-house PHP framework to Laravel to improve scalability for growing user demand.',
+          'role.oe.b3': 'Integrated Salesforce, Zoom and Mandrill APIs, as well as internal REST services.',
+          'role.oe.b4': 'Improved home-dashboard performance through Blackfire profiling, query optimization and caching.',
+          'role.oe.b5': 'Mentored junior developers and improved team workflows through GitHub code reviews and best practices.',
+          'role.ss.tools': 'PHP, JavaScript, Stripe, Mandrill, Bootstrap, Zoom',
+          'role.ss.b1': 'Owned the full web stack at an online Spanish-language education company: production systems, feature delivery, and product decisions.',
+          'role.ss.b2': 'Rebuilt the marketing site mobile-first and refactored backend services for maintainability and delivery speed.',
+          'role.ss.b4': 'Added Stripe alongside PayPal, integrated Mandrill transactional email, and migrated live classes from Adobe Connect to Zoom.',
+          'long.lead': 'Hi, I’m Emanuel Aguirre, a PHP and Laravel developer based in Spain. For over a decade I’ve helped education companies ship dependable platforms, scale them as user demand grows, and keep them calm through every release.',
+          'long.p1': 'Most of my career has lived inside education platforms: places where uptime is non-negotiable, students rely on a working live class, and a slow page is a missed lesson.',
+          'long.p2': 'I work end-to-end on the platforms I join: Laravel backends, third-party integrations, database design, code review, release pipelines, and the occasional production incident. I’m usually the technical voice in the room when business is weighing a new effort, translating intent into concrete solution paths and naming the trade-offs before scope locks in.',
+          'long.p3': 'I’ve mentored junior developers and walked teammates through the blockers and ambiguous calls that always live around the edges of a feature, partnering across product, QA, DevOps, research, and marketing to turn fuzzy requirements into safe, observable releases.',
+          'footer.copy': '© 2026 Jesus Emanuel Aguirre. Crafted in Spain.',
           'footer.email': 'Email'
         },
         es: {
           'meta.title': 'Emanuel Aguirre, Desarrollador de PHP y Laravel',
-          'meta.description': 'Desarrollador de backend que construye plataformas Laravel confiables para educación a gran escala. Con base en España.',
-          'nav.about': 'Acerca',
+          'meta.description': 'Desarrollador backend de PHP y Laravel en España, manteniendo plataformas en producción confiables desde hace más de una década.',
+          'skip': 'Ir al contenido',
+          'nav.home': 'Emanuel Aguirre, inicio',
+          'nav.language': 'Idioma',
+          'nav.english': 'Inglés',
+          'nav.spanish': 'Español',
           'nav.work': 'Experiencia',
-          'nav.highlights': 'Destacados',
+          'nav.about': 'Acerca',
           'nav.stack': 'Stack',
-          'nav.contact_cta': 'Hablemos',
-          'hero.headline': 'Software confiable, <em>construido</em> para mantener la calma en producción.',
-          'hero.lead': 'Hola, soy Emanuel Aguirre, desarrollador de PHP y Laravel con base en España. Durante más de una década he ayudado a empresas de educación a lanzar plataformas confiables, escalarlas mientras crece la demanda y mantenerlas estables en cada release.',
+          'hero.headline': '<span>Software que</span><span>mantiene la <span class="hot">calma</span></span><span>en producción.</span>',
+          'hero.lead': 'Soy Emanuel Aguirre. Más de una década con PHP, hoy desde España.',
           'hero.cta_primary': 'Iniciar una conversación',
           'hero.cta_secondary': 'Ver experiencia',
-          'strip.label1': 'años construyendo software en producción',
-          'strip.label2': 'más rápida la carga de página en Open English',
-          'strip.label3': 'desarrolladores liderados en distintas zonas horarias',
-          'strip.label4': 'plataformas educativas mantenidas en producción',
-          'about.title': 'Un desarrollador que trata la <em>producción</em> como la función más importante.',
-          'about.p1': 'Mi carrera se ha desarrollado dentro de plataformas educativas: lugares donde el uptime no es negociable, los estudiantes dependen de una clase en vivo funcionando y una página lenta es una lección perdida.',
-          'about.p2': 'Trabajo de punta a punta en las plataformas en las que entro: backends en Laravel, integraciones con terceros, diseño de bases de datos, revisión de código, pipelines de release y algún incidente de producción ocasional. Suelo ser la voz técnica en la mesa cuando negocio está sopesando una nueva iniciativa, traduciendo la intención en rutas de solución concretas y nombrando los trade-offs antes de cerrar el alcance.',
-          'about.p3': 'He liderado equipos pequeños distribuidos con metodologías ágiles, mentoreado a desarrolladores junior y acompañado al equipo en los bloqueos y decisiones ambiguas que siempre viven en los bordes de una funcionalidad, colaborando con producto, QA, DevOps, research y marketing para convertir requerimientos difusos en releases seguros y observables.',
-          'about.fact_currently_lbl': 'Actualmente',
-          'about.fact_currently_val': 'PHP Developer en EnzRossi',
-          'about.fact_based_lbl': 'Ubicación',
-          'about.fact_based_val': 'España · UTC+1',
-          'about.fact_hours_lbl': 'Horario',
-          'about.fact_hours_val': 'Europa y EE.UU. Este · async-first',
-          'about.fact_lang_lbl': 'Idiomas',
-          'about.fact_lang_val': 'Español (nativo) · Inglés',
-          'about.fact_avail_lbl': 'Disponible para',
-          'about.fact_avail_val': 'Roles por contrato y tiempo completo',
-          'work.title': 'Una década <em>entregando</em>.',
-          'role.enz.time': 'Feb 2025 – Presente',
-          'role.enz.where': 'Remoto · España',
-          'role.enz.tag_access': 'Control de acceso',
-          'role.enz.title': 'PHP Developer (Contrato) · Plataforma educativa, cliente de EE. UU.',
-          'role.enz.b1': 'Desarrollé y mantuve aplicaciones web en PHP para el sector educativo.',
-          'role.enz.b2': 'Trabajé en autenticación, control de acceso (incluido SSO) e integraciones con terceros.',
-          'role.enz.b3': 'Colaboré en la preparación de releases e investigué incidencias de la aplicación.',
-          'role.oe.time': 'Jul 2018 – Jul 2024',
-          'role.oe.where': 'Remoto · LATAM',
-          'role.oe.title': 'Líder Técnico, PHP Web Developer',
-          'role.oe.b1': 'Lideré OpenEnglish Junior, la plataforma de aprendizaje de inglés para estudiantes latinoamericanos con clases en vivo y contenido asíncrono, y la migré desde un framework PHP propio a Laravel sin interrumpir las clases en vivo.',
-          'role.oe.b2': 'Gestioné un equipo distribuido de cinco desarrolladores en distintas zonas horarias: coordinación diaria, revisión de código en GitHub y conversaciones de crecimiento con cada uno.',
-          'role.oe.b4': 'Bajé el tiempo de carga del dashboard principal en un 72% (900 ms → 250 ms) mediante profiling con Blackfire, optimización de queries y caching estratégico durante la migración.',
-          'role.ss.time': 'Sep 2014 – Jul 2018',
+          'style.title': 'Principios que puedo demostrar.',
+          'stack.style.i1': 'Mentalidad production-first',
+          'stack.style.i2': 'Comunicación escrita clara',
+          'stack.style.i3': 'Colaboración async-friendly',
+          'stack.style.i4': 'Releases tranquilos y rollbacks seguros',
+          'style.h3': 'Trade-offs sin rodeos',
+          'style.d1': 'En Open English mejoré el rendimiento del dashboard principal con profiling en Blackfire, optimización de queries y caching.',
+          'style.d2': 'En EnzRossi colaboré en la preparación de releases e investigué incidencias de la aplicación.',
+          'style.d3': 'Traduzco requerimientos de negocio en opciones técnicas y trade-offs, trabajando con producto, QA y DevOps.',
+          'style.d4': 'En Open English mentoreé a desarrolladores junior y mejoré los flujos de trabajo del equipo con code reviews en GitHub y buenas prácticas.',
+          'style.d5': 'En remoto desde 2018, trabajando a diario con equipos radicados en EE. UU.',
+          'case.title': 'De PHP propio a Laravel.',
+          'case.chart': 'Diagrama: la plataforma Open English Junior pasó de un framework PHP propio a Laravel',
+          'case.before': 'Antes',
+          'case.after': 'Después',
+          'case.old': 'Framework PHP propio',
+          'case.body': 'En Open English fui responsable de esta migración, para mejorar la escalabilidad ante la creciente demanda de usuarios.',
+          'work.title': 'Más de una década, tres plataformas.',
+          'role.enz.time': 'Feb 2025 – Oct 2026',
+          'role.enz.where': 'Remoto, España',
+          'role.enz.title': 'PHP Developer, plataforma educativa, cliente de EE. UU.',
+          'role.enz.body': 'Autenticación, control de acceso con SSO, integraciones con terceros y soporte de releases.',
+          'role.oe.time': 'Jul 2018 a Jul 2024',
+          'role.oe.where': 'Remoto, Argentina',
+          'role.oe.title': 'Lead Senior PHP Web Developer',
+          'role.oe.title_time': 'Abr 2023 a Jul 2024',
+          'role.oe.title2': 'Full Stack Software Developer',
+          'role.oe.title2_time': 'Jul 2018 a Abr 2023',
+          'role.oe.body': 'Desarrollé Open English Junior, que enseña inglés a niños de América Latina.',
+          'role.ss.time': 'Sep 2014 a Jul 2018',
           'role.ss.where': 'Córdoba, Argentina',
           'role.ss.title': 'Full-Stack Web Developer',
-          'role.ss.b1': 'A cargo de todo el stack web en una empresa de educación en español online: sistemas en producción, entrega de funcionalidades y decisiones de producto.',
-          'role.ss.b2': 'Reconstruí el sitio de marketing con enfoque mobile-first y refactoricé los servicios de backend para mejorar la mantenibilidad y la velocidad de entrega.',
-          'role.ss.b4': 'Sumé Stripe como opción de pago principal junto a PayPal, integré Mandrill para emails transaccionales y migré las clases en vivo de Adobe Connect a Zoom.',
-          'highlights.title': 'Algunos logros que vale la pena <em>contar</em>.',
-          'card.perf.badge': 'Rendimiento',
-          'card.perf.title': '72% más rápido, de punta a punta.',
-          'card.perf.stat': '900&thinsp;ms <span class="card-arrow">→</span> 250&thinsp;ms',
-          'card.perf.body': 'Hice profiling de los hot paths con Blackfire, optimicé las queries más lentas y agregué caching estratégico durante la migración a Laravel, bajando el dashboard de 900 ms a 250 ms sin cambiar la UX.',
-          'card.pay.badge': 'Pagos',
-          'card.pay.title': 'Stripe se suma, PayPal sigue.',
-          'card.pay.stat': 'PayPal <span class="card-arrow">→</span> Stripe + PayPal',
-          'card.pay.body': 'Sumé Stripe como opción de pago principal junto a PayPal en una escuela online de español, además de emails transaccionales con Mandrill y el pase de las clases en vivo de Adobe Connect a Zoom.',
-          'card.mig.badge': 'Migración',
-          'card.mig.title': 'Salir del legacy. Entrar a Laravel.',
-          'card.mig.stat': 'Framework propio <span class="card-arrow">→</span> Laravel',
-          'card.mig.body': 'Lideré la migración de OpenEnglish Junior desde un framework PHP propio hacia Laravel sin interrumpir las clases en vivo, aprovechando el cambio para reconstruir escalabilidad, mantenibilidad y velocidad del equipo.',
-          'stack.title': 'El stack que utilizo.',
+          'role.ss.body': 'A cargo de todo el stack web de una escuela online de español.',
+          'about.title': 'Una página lenta es una lección perdida.',
+          'about.p1': 'Mi carrera se ha desarrollado dentro de plataformas educativas, tres mantenidas en producción, donde los estudiantes dependen de una clase en vivo funcionando.',
+          'about.p2': 'Trabajo de punta a punta, del backend en Laravel al pipeline de release, y suelo nombrar los trade-offs antes de cerrar el alcance.',
+          'stack.title': 'Sobre todo PHP. Nunca solo PHP.',
           'stack.backend': 'Backend',
-          'stack.backend.i3': 'APIs REST · colas · Horizon',
+          'stack.backend.i3': 'APIs REST, colas, Horizon',
           'stack.backend.i4': 'Diseño y optimización de queries',
           'stack.backend.i5': 'Estrategias de caching',
           'stack.frontend': 'Frontend',
           'stack.frontend.i5': 'Implementación mobile-first',
           'stack.integrations': 'Integraciones',
           'stack.integrations.i1': 'Zoom API y OAuth',
-          'stack.integrations.i2': 'APIs de terceros · SSO',
+          'stack.integrations.i2': 'APIs de terceros, SSO',
           'stack.integrations.i3': 'Pendo (analítica de producto)',
           'stack.devops': 'DevOps y calidad',
-          'stack.devops.i5': 'PHPUnit · feature tests',
+          'stack.devops.i5': 'PHPUnit, feature tests',
           'stack.leadership': 'Liderazgo',
           'stack.leadership.i1': 'Liderazgo técnico',
-          'stack.leadership.i2': 'Code review · mentoring',
-          'stack.leadership.i3': 'Planificación de releases · handoff a QA',
+          'stack.leadership.i2': 'Code review, mentoring',
+          'stack.leadership.i3': 'Planificación de releases, handoff a QA',
           'stack.leadership.i4': 'Soporte de producción',
           'stack.leadership.i5': 'Entrega cross-funcional',
-          'stack.style': 'Estilo de trabajo',
-          'stack.style.i1': 'Mentalidad production-first',
-          'stack.style.i2': 'Comunicación escrita clara',
-          'stack.style.i3': 'Colaboración async-friendly',
-          'stack.style.i4': 'Releases tranquilos y rollbacks seguros',
-          'stack.style.i5': 'Documentación como funcionalidad',
-          'contact.headline': '¿Una plataforma Laravel que necesita una <em>mano firme</em>?',
-          'contact.lead': 'Abierto a roles de backend por contrato o tiempo completo, especialmente en educación, rendimiento y confiabilidad de plataformas. La mejor forma de contactarme es por email.',
-          'contact.based_lbl': 'Ubicación',
-          'contact.based_val': 'España',
-          'contact.hours_lbl': 'Horario',
-          'contact.hours_val': 'Europa y EE.UU. Este',
-          'contact.lang_lbl': 'Idiomas',
-          'contact.lang_val': 'ES (nativo) · EN',
-          'footer.copy': '© 2026 Jesus Emanuel Aguirre · Hecho en España',
+          'contact.headline': 'Cuéntame qué necesita mantener la calma.',
+          'contact.lead': 'Abierto a roles de backend en educación, rendimiento y confiabilidad de plataformas. La mejor forma de contactarme es por email.',
+          'about.fact_currently_lbl': 'Especialidad',
+          'about.fact_currently_val': 'PHP y Laravel',
+          'about.fact_based_lbl': 'Ubicación',
+          'about.fact_based_val': 'España, UTC+1',
+          'about.fact_hours_lbl': 'Horario',
+          'about.fact_hours_val': 'Europa y EE. UU. Este, async-first',
+          'about.fact_lang_lbl': 'Idiomas',
+          'about.fact_lang_val': 'Español (nativo); inglés (avanzado, trabajo diario con equipos radicados en EE. UU.)',
+          'about.fact_avail_lbl': 'Disponible para',
+          'about.fact_avail_val': 'Roles por contrato y tiempo completo',
+          'more.role': 'Notas completas',
+          'more.about': 'La versión larga',
+          'more.tools': 'Herramientas',
+          'role.enz.tools': 'PHP, SSO, CI/CD',
+          'role.enz.b1': 'Desarrollé y mantuve aplicaciones web en PHP para el sector educativo.',
+          'role.enz.b2': 'Trabajé en autenticación, control de acceso (incluido SSO) e integraciones con terceros.',
+          'role.enz.b3': 'Colaboré en la preparación de releases e investigué incidencias de la aplicación.',
+          'role.oe.tools': 'Laravel, MySQL, Redis, Blackfire, Zoom OAuth, Docker',
+          'role.oe.b1': 'Desarrollé la plataforma de aprendizaje Open English Junior, que enseña inglés a niños de América Latina.',
+          'role.oe.b2': 'Fui responsable de la migración de la plataforma desde un framework PHP propio a Laravel, para mejorar la escalabilidad ante la creciente demanda de usuarios.',
+          'role.oe.b3': 'Integré las APIs de Salesforce, Zoom y Mandrill, además de servicios REST internos.',
+          'role.oe.b4': 'Mejoré el rendimiento del dashboard principal con profiling en Blackfire, optimización de queries y caching.',
+          'role.oe.b5': 'Mentoreé a desarrolladores junior y mejoré los flujos de trabajo del equipo con code reviews en GitHub y buenas prácticas.',
+          'role.ss.tools': 'PHP, JavaScript, Stripe, Mandrill, Bootstrap, Zoom',
+          'role.ss.b1': 'A cargo de todo el stack web en una empresa de educación en español online: sistemas en producción, entrega de funcionalidades y decisiones de producto.',
+          'role.ss.b2': 'Reconstruí el sitio de marketing con enfoque mobile-first y refactoricé los servicios de backend para mejorar la mantenibilidad y la velocidad de entrega.',
+          'role.ss.b4': 'Sumé Stripe junto a PayPal, integré Mandrill para emails transaccionales y migré las clases en vivo de Adobe Connect a Zoom.',
+          'long.lead': 'Hola, soy Emanuel Aguirre, desarrollador de PHP y Laravel con base en España. Durante más de una década he ayudado a empresas de educación a lanzar plataformas confiables, escalarlas mientras crece la demanda y mantenerlas estables en cada release.',
+          'long.p1': 'Mi carrera se ha desarrollado dentro de plataformas educativas: lugares donde el uptime no es negociable, los estudiantes dependen de una clase en vivo funcionando y una página lenta es una lección perdida.',
+          'long.p2': 'Trabajo de punta a punta en las plataformas en las que entro: backends en Laravel, integraciones con terceros, diseño de bases de datos, revisión de código, pipelines de release y algún incidente de producción ocasional. Suelo ser la voz técnica en la mesa cuando negocio está sopesando una nueva iniciativa, traduciendo la intención en rutas de solución concretas y nombrando los trade-offs antes de cerrar el alcance.',
+          'long.p3': 'He mentoreado a desarrolladores junior y acompañado al equipo en los bloqueos y decisiones ambiguas que siempre viven en los bordes de una funcionalidad, colaborando con producto, QA, DevOps, research y marketing para convertir requerimientos difusos en releases seguros y observables.',
+          'footer.copy': '© 2026 Jesus Emanuel Aguirre. Hecho en España.',
           'footer.email': 'Email'
         }
       };
@@ -1737,78 +846,29 @@
           if (el.hasAttribute('data-i18n-html')) el.innerHTML = dict[key];
           else el.textContent = dict[key];
         });
+        document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n-aria');
+          if (dict[key] !== undefined) el.setAttribute('aria-label', dict[key]);
+        });
 
         html.setAttribute('data-lang', lang);
         html.lang = lang;
 
-        document.querySelectorAll('.lang-toggle [data-lang]').forEach(function (b) {
-          var active = b.getAttribute('data-lang') === lang;
-          b.classList.toggle('is-active', active);
-          if (active) b.setAttribute('aria-current', 'true');
-          else b.removeAttribute('aria-current');
+        document.querySelectorAll('.lang [data-lang]').forEach(function (b) {
+          b.setAttribute('aria-pressed', b.getAttribute('data-lang') === lang ? 'true' : 'false');
         });
       }
 
       var initialLang = html.getAttribute('data-lang') === 'es' ? 'es' : 'en';
       applyTranslations(initialLang);
 
-      document.querySelectorAll('.lang-toggle [data-lang]').forEach(function (b) {
+      document.querySelectorAll('.lang [data-lang]').forEach(function (b) {
         b.addEventListener('click', function () {
           var lang = b.getAttribute('data-lang');
           applyTranslations(lang);
           try { localStorage.setItem('lang', lang); } catch (e) {}
         });
       });
-
-      var btn = document.querySelector('.theme-toggle');
-      if (btn) {
-        btn.addEventListener('click', function () {
-          var current = html.getAttribute('data-theme');
-          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          var isDark;
-          if (current === 'dark') isDark = true;
-          else if (current === 'light') isDark = false;
-          else isDark = prefersDark;
-          var next = isDark ? 'light' : 'dark';
-          html.setAttribute('data-theme', next);
-          try { localStorage.setItem('theme', next); } catch (e) {}
-        });
-      }
-
-      if ('IntersectionObserver' in window) {
-        var revealObserver = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-        document.querySelectorAll('[data-animate]').forEach(function (el) {
-          revealObserver.observe(el);
-        });
-
-        var navLinks = document.querySelectorAll('.primary-nav a');
-        var sections = document.querySelectorAll('main section[id]');
-        var spy = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              var id = '#' + entry.target.id;
-              navLinks.forEach(function (link) {
-                if (link.getAttribute('href') === id) link.classList.add('is-active');
-                else link.classList.remove('is-active');
-              });
-            }
-          });
-        }, { threshold: 0, rootMargin: '-40% 0px -55% 0px' });
-
-        sections.forEach(function (s) { spy.observe(s); });
-      } else {
-        document.querySelectorAll('[data-animate]').forEach(function (el) {
-          el.classList.add('is-visible');
-        });
-      }
     })();
   </script>
 </body>
